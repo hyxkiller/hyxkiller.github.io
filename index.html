@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/hello-world-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/React如何在Nginx部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Han Yanxi">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/04/hello-world-1/" itemprop="url">hello world</a></h1>
+                <a class="post-title-link" href="/2019/01/09/React如何在Nginx部署/" itemprop="url">React项目部署Nginx配置</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-04T18:31:26+08:00">
-                2018-09-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T23:32:52+08:00">
+                2019-01-09
               </time>
             
 
@@ -300,7 +300,690 @@
       
         
           
+            <h3 id="nginx基础命令"><a href="#nginx基础命令" class="headerlink" title="nginx基础命令"></a>nginx基础命令</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><ul>
+<li>brew install nginx<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4></li>
+<li>nginx<h4 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h4></li>
+<li>nginx -s reload<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4></li>
+<li>查看主进程号  ps -ef | grep nginx</li>
+<li>从容停止 kill -QUIT 主进程号</li>
+<li>快速停止 kill -TERM 主进程号</li>
+<li>强制停止 kill -9 nginx</li>
+</ul>
+<hr>
+<h3 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h3><ul>
+<li>把build后的包放到/usr/local/Cellar/nginx/1.15.0目录下</li>
+<li>修改/usr/local/etc/nginx/nginx.conf文件配置</li>
+<li><pre><code>location / {
+    root   build;
+    index  index.html index.htm;
+    try_files $uri $uri/ /index.html;
+}
+
+client_max_body_size 2m;
+
+location ^~ /api/ {
+    proxy_pass 后端部署地址;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &quot;upgrade&quot;;
+    proxy_set_header   Host             $host;
+    proxy_set_header   X-Real-IP        $remote_addr;
+    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+}
+
+location ~* /.html$ { 
+    add_header Cache-Control &quot;no-store, no-cache&quot;;
+}
+location ~* /.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc|eot|ttf)$ { expires max;}
+location ~* /.(?:css|js|js/.map)$ { expires max;}
+
+error_page   500 502 503 504  /50x.html;
+location = /50x.html {
+    root   html;
+}
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.root 为根目录默认路径</span><br><span class="line">2.try_files $uri $uri/ /index.html;</span><br><span class="line">因为browserRouter的原因，需要将每个uri指向index.html</span><br><span class="line">3.location ~* /.html$ 为html设置不缓存</span><br><span class="line">4.client_max_body_size限制上传文件大小</span><br><span class="line">5.error_page可以自定义错误页和访问设置</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="location的四种类别"><a href="#location的四种类别" class="headerlink" title="location的四种类别"></a>location的四种类别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=   location = path 优先级最高，但要全路径匹配  </span><br><span class="line">^~  location ^~ path 优先级第二</span><br><span class="line">~ or ~* location ~ path [~正则匹配区分大小写，~*不区分大小写]</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/算法复杂度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/算法复杂度/" itemprop="url">算法复杂度</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T23:31:44+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>复杂度也叫渐进复杂度，包括时间复杂度和空间复杂度，时间复杂度表示执行的快慢，空间复杂度表示执行的消耗</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul>
+<li>只关注循环执行最多的一段代码</li>
+<li>加法法则：总复杂度等于量级最大的那段代码的复杂度。</li>
+<li>乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积</li>
+<li><p>常见时间复杂度分析</p>
+<ul>
+<li>O(1) 常数阶</li>
+<li><p>O(logn) 对数阶, O(nlogn) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function total1(n) &#123;</span><br><span class="line">  var sum = 0;</span><br><span class="line">  var i = 1;</span><br><span class="line">  while (i &lt;= n) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">    i = i * 2;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function total2(n) &#123;</span><br><span class="line">  var sum = 0;</span><br><span class="line">  for (var i = 1; i &lt;= n; i = i * 2) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2^x = n, x = log2n, O(log2n)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>O(m+n), O(m*n)</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作数量事例</th>
+<th>大O表示法</th>
+<th>术语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>O(1)</td>
+<td>常数阶</td>
+</tr>
+<tr>
+<td>2logn</td>
+<td>O(logn)</td>
+<td>对数阶</td>
+</tr>
+<tr>
+<td>3n+5</td>
+<td>O(n)</td>
+<td>线性阶</td>
+</tr>
+<tr>
+<td>5n^2 + 2n</td>
+<td>O(n^2)</td>
+<td>平方阶</td>
+</tr>
+<tr>
+<td>2^n+1</td>
+<td>O(2^n)</td>
+<td>指数阶</td>
+</tr>
+<tr>
+<td>n!+3</td>
+<td>O(n!)</td>
+<td>阶乘阶</td>
+</tr>
+</tbody>
+</table>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>表示算法的存储空间和数据规模的关系。</p>
+<ul>
+<li>常见的只有O(1), O(n), O(n^2)</li>
+</ul>
+<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function total(n) &#123;</span><br><span class="line">     let sum = 0;</span><br><span class="line">     for (let i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">     &#125;</span><br><span class="line">     return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此函数时间复杂度为O(n)，怎么降为O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function total(n)&#123;</span><br><span class="line">    return n * (n + 1) / 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/React多页面应用如何配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/React多页面应用如何配置/" itemprop="url">React多页面应用如何配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T23:30:29+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="修改webpack-config文件"><a href="#修改webpack-config文件" class="headerlink" title="修改webpack.config文件"></a>修改webpack.config文件</h4><p>主要是entry(入口), output(出口), plugin(插件)   </p>
+<ul>
+<li><p>entry换为对象，有几个页面加几个数组         </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    home: [</span><br><span class="line">        require.resolve(&apos;./polyfills&apos;),</span><br><span class="line">        require.resolve(&apos;react-dev-utils/webpackHotDevClient&apos;),</span><br><span class="line">        path.resolve(paths.appSrc, &quot;index.js&quot;)</span><br><span class="line">    ],</span><br><span class="line">    login: [</span><br><span class="line">        require.resolve(&apos;./polyfills&apos;),</span><br><span class="line">        require.resolve(&apos;react-dev-utils/webpackHotDevClient&apos;),</span><br><span class="line">        path.resolve(paths.appSrc, &quot;login/index.js&quot;)</span><br><span class="line">    ],</span><br><span class="line">    register: [</span><br><span class="line">        require.resolve(&apos;./polyfills&apos;),</span><br><span class="line">        require.resolve(&apos;react-dev-utils/webpackHotDevClient&apos;),</span><br><span class="line">        path.resolve(paths.appSrc, &quot;register/index.js&quot;)</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>output输出文件名加一层</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: &apos;static/js/[name].[hash:8].js&apos;,</span><br><span class="line">    chunkFilename: &apos;static/js/[name].[hash:8].chunk.js&apos;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>plugin把所有页面都用webpackHtmlPlugin解析</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">new HtmlWebpackPlugin(&#123;</span><br><span class="line">  inject: true,</span><br><span class="line">  chunks: [&apos;home&apos;],</span><br><span class="line">  template: paths.appHtml,</span><br><span class="line">  filename: &apos;home.html&apos;</span><br><span class="line">&#125;),</span><br><span class="line">new HtmlWebpackPlugin(&#123;</span><br><span class="line">  inject: true,</span><br><span class="line">  chunks: [&apos;login&apos;],</span><br><span class="line">  template: paths.appHtml,</span><br><span class="line">  filename: &apos;login.html&apos;</span><br><span class="line">&#125;),</span><br><span class="line">new HtmlWebpackPlugin(&#123;</span><br><span class="line">  inject: true,</span><br><span class="line">  chunks: [&apos;register&apos;],</span><br><span class="line">  template: paths.appHtml,</span><br><span class="line">  filename: &apos;register.html&apos;</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/React按需加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/React按需加载/" itemprop="url">React按需加载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T23:27:50+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h2><h4 id="文件代码"><a href="#文件代码" class="headerlink" title="文件代码"></a>文件代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">export default function asyncComponent(importComponent) &#123;</span><br><span class="line">    class AsyncComponent extends Component &#123;</span><br><span class="line">        constructor(props) &#123;</span><br><span class="line">            super(props);</span><br><span class="line">            this.state = &#123;</span><br><span class="line">                component: null</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        async componentDidMount() &#123;</span><br><span class="line">            const &#123; default: component &#125; = await importComponent();</span><br><span class="line"></span><br><span class="line">            this.setState(&#123;</span><br><span class="line">                component: component</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        render() &#123;</span><br><span class="line">            const Component = this.state.component;</span><br><span class="line"></span><br><span class="line">            return Component ? &lt;Component &#123;...this.props&#125; /&gt; : null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return AsyncComponent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [</span><br><span class="line">        &quot;react-app&quot;,</span><br><span class="line">        &quot;env&quot;,</span><br><span class="line">        &quot;react-native-stage-0/decorator-support&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="装包"><a href="#装包" class="headerlink" title="装包"></a>装包</h4><ul>
+<li>都是处理babel的插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i babel-preset-env babel-preset-react-native-stage-0 -D</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="组件引入"><a href="#组件引入" class="headerlink" title="组件引入"></a>组件引入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import asyncComponent from &apos;utils/asyncComponent&apos;</span><br><span class="line">const Home = asyncComponent(() =&gt; import(&apos;./components/home&apos;));</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h2><h4 id="引入react-loadable"><a href="#引入react-loadable" class="headerlink" title="引入react-loadable"></a>引入react-loadable</h4><ul>
+<li>好处：可监听组件加载不到的状态  </li>
+<li>应用：在不用service-worker的情况下重新部署时，如果用户之前页面没有关，跳路由时，会在服务器找不到相应的chunk文件，此时会通过监听这一状态，返回一个可以自动reload的页面</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/深浅拷贝/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/深浅拷贝/" itemprop="url">深浅拷贝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T23:02:36+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><ul>
+<li><p>基本数据类型（string, number, boolean, null, undefined, Symbol）: <strong>赋值</strong>,两个变量互不影响</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a = &apos;haha&apos;;</span><br><span class="line">let b = a;</span><br><span class="line">a = &apos;hahaha&apos;;</span><br><span class="line">console.log(a); // hahaha</span><br><span class="line">console.log(b); // haha</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用数据类型(object): <strong>赋址</strong>，两个变量具有相同的引用，指向同一个对象，相互之间有影响</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    name: &apos;haha&apos;,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: &apos;JS&apos;,</span><br><span class="line">        price: 40</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = a;</span><br><span class="line">a.name = &apos;hahaha&apos;;</span><br><span class="line">a.book.price = 50;</span><br><span class="line">console.log(a); // &#123;name: &apos;hahaha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br><span class="line">console.log(b); // &#123;name: &apos;hahaha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><ul>
+<li><p>概念<br>创建一个对象，有原始对象属性值的一份精确拷贝。<br>基本类型: 拷贝<strong>值</strong><br>引用类型: 拷贝<strong>内存地址</strong>，其中一个对象改变了地址，会影响到另一个对象</p>
+</li>
+<li><p>场景</p>
+<ul>
+<li><p>Object.assign()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    name: &apos;haha&apos;,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: &apos;JS&apos;,</span><br><span class="line">        price: 40</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = Object.assign(&#123;&#125;, a);</span><br><span class="line">a.name = &apos;hahaha&apos;;</span><br><span class="line">a.book.price = 50;</span><br><span class="line">console.log(a); // &#123;name: &apos;hahaha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br><span class="line">console.log(b); // &#123;name: &apos;haha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Spread展开运算符<br>同Object.assign()</p>
+</li>
+<li>slice()<br>slice() 方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的<strong>浅拷贝</strong>。原始数组不会被改变。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let a = [0, &quot;1&quot;, [2, 3]];</span><br><span class="line">let b = a.slice(1);</span><br><span class="line">a[1] = &quot;99&quot;;</span><br><span class="line">a[2][0] = 4;</span><br><span class="line">console.log(a); // [0, &quot;99&quot;, [4, 3]]</span><br><span class="line">console.log(b); //  [&quot;1&quot;, [4, 3]]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。拷贝前后两个对象互不影响。</p>
+<ul>
+<li><p>使用场景<br>  JSON.parse(JSON.stringfy(object))</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    name: &quot;haha&quot;,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: &quot;JS&quot;,</span><br><span class="line">        price: 45</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = JSON.parse(JSON.stringify(a));</span><br><span class="line">a.name = &apos;change&apos;;</span><br><span class="line">a.book.price = 100;</span><br><span class="line">console.log(a); // &#123;name: &apos;change&apos;, book: &#123;title: &apos;JS&apos;, price: 100&#125;&#125;</span><br><span class="line">console.log(b); // &#123;name: &apos;haha&apos;, book: &#123;title: &apos;JS&apos;, price: 45&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>问题</p>
+<ul>
+<li><p>undefined, Symbol, 函数，会直接忽略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">    name: &apos;haha&apos;,</span><br><span class="line">    a: undefined,</span><br><span class="line">    b: Symbol(&apos;haha&apos;),</span><br><span class="line">    c: function() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = JSON.parse(JSON.stringfy(obj));</span><br><span class="line">console.log(b); // &#123;name: &apos;haha&apos;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环引用，会报错</p>
+</li>
+<li>new Date情况下，转换结果不正确</li>
+<li>不能处理正则</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>和原数据是否指向同一对象</th>
+<th>第一层数据为基本数据类型</th>
+<th>原数据中包含子对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>赋值</td>
+<td>是</td>
+<td>改变<strong>会</strong>使原数据一同改变</td>
+<td>改变<strong>会</strong>使原数据一同改变</td>
+</tr>
+<tr>
+<td>浅拷贝</td>
+<td>是</td>
+<td>改变<strong>不会</strong>使原数据一同改变</td>
+<td>改变<strong>会</strong>使原数据一同改变</td>
+</tr>
+<tr>
+<td>深拷贝</td>
+<td>是</td>
+<td>改变<strong>不会</strong>使原数据一同改变</td>
+<td>改变<strong>不会</strong>使原数据一同改变</td>
+</tr>
+</tbody>
+</table>
+
           
         
       
@@ -513,7 +1196,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -521,6 +1204,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -554,7 +1246,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
