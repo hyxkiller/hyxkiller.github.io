@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="flutter," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="如何加入谷歌统计 创建或登录到您的 Google Analytics帐号( google.com/analytics) 在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。 如何设置媒体资源？ 登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。 在“媒体资源”列(第二列)中">
+<meta name="keywords" content="flutter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引入谷歌统计">
+<meta property="og:url" content="http://yoursite.com/2019/02/20/引入谷歌统计/index.html">
+<meta property="og:site_name" content="HyxKiller&#39;s Blog">
+<meta property="og:description" content="如何加入谷歌统计 创建或登录到您的 Google Analytics帐号( google.com/analytics) 在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。 如何设置媒体资源？ 登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。 在“媒体资源”列(第二列)中">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-20T15:44:13.333Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="引入谷歌统计">
+<meta name="twitter:description" content="如何加入谷歌统计 创建或登录到您的 Google Analytics帐号( google.com/analytics) 在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。 如何设置媒体资源？ 登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。 在“媒体资源”列(第二列)中">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/20/引入谷歌统计/"/>
+
+
+
+
+
+  <title>引入谷歌统计 | HyxKiller's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HyxKiller's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/引入谷歌统计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">引入谷歌统计</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-20T23:44:04+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="如何加入谷歌统计"><a href="#如何加入谷歌统计" class="headerlink" title="如何加入谷歌统计"></a>如何加入谷歌统计</h2><ol>
+<li>创建或登录到您的 Google Analytics帐号( google.com/analytics)</li>
+<li>在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。<br> <strong>如何设置媒体资源？</strong><ul>
+<li>登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。</li>
+<li>在“媒体资源”列(第二列)中，点击创建新媒体资源。如果您对相应帐号没有“修改”权限，则看不到创建新媒体资源选项。请检查您是否已 从“帐号”列中选择了正确的帐号。</li>
+<li>选择网站或移动应用。如果您选择网站，请跳至第 5 步。如果您选择移动应用，请继续执行第 4 步。</li>
+<li>（移动应用）在“跟踪方法”下，选择 Firebase。从菜单中选择一个应用，然后点击关联应用。</li>
+<li>输入网站名称或应用名称。如果打算在帐号中跟踪多个应用，请使用非常具体的描述性名称，并在其中包含版本号。方便日后管理。（仅限网站）输入网站网址。如果网址的格式不正确，就无法创建媒体资源。</li>
+<li>选择行业类别。</li>
+<li>选择报告时区。此时区将用作报告的每日起止时间，而无论数据来自何处。</li>
+<li>点击获取跟踪 ID。</li>
+</ul>
+</li>
+<li>在您的媒体资源中设置报告数据视图。数据视图支持显示网站的某一部分跟踪数据，过滤掉其他不重要部分的数据。没有创建视图默认是全部网站数据。</li>
+<li>按照说明将跟踪代码添加到您的网站或移动应用。<br> <strong>如何查找跟踪ID？</strong><ul>
+<li>登录到您的 Google Analytics（分析）帐号</li>
+<li>点击左下角管理</li>
+<li>从“帐号”列的菜单中选择一个帐号。</li>
+<li>从“媒体资源”列的菜单中选择一个媒体资源。</li>
+<li>在“媒体资源”下，点击跟踪信息 &gt; 跟踪代码。跟踪 ID 会显示在页面的顶部。     </li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>跟踪代码段 将以下代码段粘贴到网站的每个网页的 <head> 标记之后，并且紧挨着该标记放置。将 GA_TRACKING_ID 替换为您自己的 Google Analytics（分析）跟踪 ID：</head></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">   window.dataLayer = window.dataLayer || [];</span><br><span class="line">   function gtag()&#123;dataLayer.push(arguments);&#125;</span><br><span class="line">   gtag(&apos;js&apos;, new Date());</span><br><span class="line"> </span><br><span class="line">   gtag(&apos;config&apos;, &apos;GA_TRACKING_ID&apos;);</span><br><span class="line"> &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证跟踪代码是否正常工作 要验证跟踪代码是否正常工作，请访问您的网站，并检查您的这次访问是否已在实时报告(在左侧面板中，打开实时类别下的概览。)中记录。</p>
+</li>
+</ul>
+<h2 id="设置事件跟踪"><a href="#设置事件跟踪" class="headerlink" title="设置事件跟踪"></a>设置事件跟踪</h2><ol>
+<li>设置时间目标<ul>
+<li>登录到您的 Google Analytics（分析）帐号 点击左下角管理</li>
+<li>从“帐号”列的菜单中选择一个帐号。</li>
+<li>从“媒体资源”列的菜单中选择一个媒体资源。 从“数据视图”列的菜单中选择一个数据视图。</li>
+<li>点击目标&gt;自定义按钮&gt;继续，填写名称(最好是你自己可以区分的，有意义的名字例如：打赏按钮)，点击类型下的事件&gt;继续&gt;填写类别、操作、标签和价值(可选)&gt;保存即可。</li>
+</ul>
+</li>
+<li><p>设置事件跟踪<br>在你的网页添加如下类似的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a onClick=&quot;ga(&apos;send&apos;, &apos;event&apos;, &apos;你填写的类别&apos;, &apos;你填写的操作&apos;, &apos;你填写的标签&apos;,&apos;你填写的价值&apos;);&quot; href=&quot;打赏链接&quot; target=&quot;_blank”&gt;打赏&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看事件追踪报告 左侧面板实时&gt;事件即可查看</p>
+</li>
+</ol>
+<h2 id="设置异常跟踪"><a href="#设置异常跟踪" class="headerlink" title="设置异常跟踪"></a>设置异常跟踪</h2><p>在您的网站添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;send&apos;, &apos;exception&apos;, [fieldsObject]);</span><br></pre></td></tr></table></figure></p>
+<p>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  // Runs code that may or may not work.</span><br><span class="line">  ....</span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">  ga(&apos;send&apos;, &apos;exception&apos;, &#123;</span><br><span class="line">    &apos;exDescription&apos;: err.message,//可选 标识对异常的说明。</span><br><span class="line">    &apos;exFatal&apos;: false,//可选 true 表示异常属于严重类型。</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="用户识别"><a href="#用户识别" class="headerlink" title="用户识别"></a>用户识别</h2><p>通过<strong>User ID</strong>进行用户身份识别<br><strong>注意</strong>:USER_ID 值应是一个独一无二的永久性非个人身份字符串，在所有设备上代表对应的用户或已登录帐户。</p>
+<ol>
+<li><p>如果userId是已知的，可以直接获取到，则只需添加如下代码即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;create&apos;, &apos;UA-XXXXX-Y&apos;, &apos;auto&apos;, &#123;</span><br><span class="line">    userId: USER_ID</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果userId是未知的，需要调用接口才能获取到，那么在获取到userId后执行如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;set&apos;, &apos;userId&apos;, USER_ID);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>添加该段代码后必须再设置一个事件向谷歌统计发送数据（参考谷歌统计之设置事件跟踪文章），例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;send&apos;, &apos;event&apos;, &apos;authentication&apos;, &apos;user-id available&apos;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="停用谷歌统计"><a href="#停用谷歌统计" class="headerlink" title="停用谷歌统计"></a>停用谷歌统计</h2><p>在网站添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window[&apos;ga-disable-UA-XXXXX-Y&apos;] = true;</span><br></pre></td></tr></table></figure></p>
+<p>其中的值 UA-XXXXX-Y对应于您要停止跟踪的媒体资源 ID。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/flutter/" rel="tag"># flutter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/flutter请求方案/" rel="next" title="flutter请求方案">
+                <i class="fa fa-chevron-left"></i> flutter请求方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Han Yanxi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何加入谷歌统计"><span class="nav-number">1.</span> <span class="nav-text">如何加入谷歌统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置事件跟踪"><span class="nav-number">2.</span> <span class="nav-text">设置事件跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置异常跟踪"><span class="nav-number">3.</span> <span class="nav-text">设置异常跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户识别"><span class="nav-number">4.</span> <span class="nav-text">用户识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停用谷歌统计"><span class="nav-number">5.</span> <span class="nav-text">停用谷歌统计</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Yanxi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>

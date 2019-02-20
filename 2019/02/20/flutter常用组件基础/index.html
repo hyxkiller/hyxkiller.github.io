@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="flutter," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="常用组件 TextWidget      常用属性 TextAlign maxLines 最大行数 overflow(fade, ellipsis, clip)1234567891011child: Text(        &amp;apos;hello&amp;apos;,        textAlign: TextAlign.left,        // maxLines: 3,        // o">
+<meta name="keywords" content="flutter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flutter常用组件基础">
+<meta property="og:url" content="http://yoursite.com/2019/02/20/flutter常用组件基础/index.html">
+<meta property="og:site_name" content="HyxKiller&#39;s Blog">
+<meta property="og:description" content="常用组件 TextWidget      常用属性 TextAlign maxLines 最大行数 overflow(fade, ellipsis, clip)1234567891011child: Text(        &amp;apos;hello&amp;apos;,        textAlign: TextAlign.left,        // maxLines: 3,        // o">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-20T15:36:47.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flutter常用组件基础">
+<meta name="twitter:description" content="常用组件 TextWidget      常用属性 TextAlign maxLines 最大行数 overflow(fade, ellipsis, clip)1234567891011child: Text(        &amp;apos;hello&amp;apos;,        textAlign: TextAlign.left,        // maxLines: 3,        // o">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/20/flutter常用组件基础/"/>
+
+
+
+
+
+  <title>flutter常用组件基础 | HyxKiller's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HyxKiller's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/flutter常用组件基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">flutter常用组件基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-20T23:36:33+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="常用组件"><a href="#常用组件" class="headerlink" title="常用组件"></a>常用组件</h4><ul>
+<li><p>TextWidget    </p>
+<ul>
+<li>常用属性<ol>
+<li>TextAlign</li>
+<li>maxLines 最大行数</li>
+<li>overflow(fade, ellipsis, clip)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">child: Text(</span><br><span class="line">        &apos;hello&apos;,</span><br><span class="line">        textAlign: TextAlign.left,</span><br><span class="line">        // maxLines: 3,</span><br><span class="line">        // overflow: TextOverflow.ellipsis,</span><br><span class="line">        style: TextStyle(</span><br><span class="line">          fontSize: 24,</span><br><span class="line">          color: Color.fromARGB(255, 255, 150, 150),</span><br><span class="line">          decorationStyle: TextDecorationStyle.dashed,</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ContainerWidget</p>
+<ul>
+<li>内边距、外边距<br>EdgeInsets.all()统一设置<br>EdgeInsets.fromLTRB(v1, v2, v3, v4)</li>
+<li>decoration修饰器(设置容器边框)<br>BoxDecoration()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">child: Container(</span><br><span class="line">        child: new Text(</span><br><span class="line">          &apos;hello flutter&apos;,</span><br><span class="line">          style: TextStyle(</span><br><span class="line">            fontSize: 20,</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">        width: 500,</span><br><span class="line">        height: 300,</span><br><span class="line">        padding: EdgeInsets.all(20),</span><br><span class="line">        margin: EdgeInsets.fromLTRB(10, 20, 30, 40),</span><br><span class="line">        decoration: BoxDecoration(</span><br><span class="line">          gradient: LinearGradient(</span><br><span class="line">            colors: [</span><br><span class="line">              Colors.lightBlue,</span><br><span class="line">              Colors.purple,</span><br><span class="line">              Colors.greenAccent</span><br><span class="line">            ]</span><br><span class="line">          )</span><br><span class="line">        ),</span><br><span class="line">        alignment: Alignment.centerLeft,</span><br><span class="line">        // color: Colors.blue,</span><br><span class="line">      ),</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>ImageWidget</p>
+<ul>
+<li>引入方式    <ol>
+<li>Image.asset 加载资源图片，会使打包体积过大   </li>
+<li>Image.network 网络资源图片 </li>
+<li>Image.file 本地图片，相机照相后图片预览 </li>
+<li>Image.memory 加载到内存中的图片 Uint8List</li>
+</ol>
+</li>
+<li>Fit属性<br>  BoxFit.contain(最大程度拉伸，图片未变形)<br>  BoxFit.cover(图片保持原比例，可能被裁切)<br>  BoxFit.fill(宽高撑满，图片变形)<br>  BoxFit.fitHeight(高度撑满，宽度裁切)<br>  BoxFit.fitWidth(宽度撑满，高度裁切)  </li>
+<li>混合模式<br>  colorBlendMode: BlendMode.xxx</li>
+<li>重复<br>  repeat: ImageRepeat.xxx</li>
+</ul>
+</li>
+<li><p>ListView</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">body: new ListView(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.accessible_forward),</span><br><span class="line">          title: new Text(&apos;data&apos;),</span><br><span class="line">        ),</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.satellite),</span><br><span class="line">          title: new Text(&apos;ios&apos;),</span><br><span class="line">        ),</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.question_answer),</span><br><span class="line">          title: new Text(&apos;qqq&apos;),</span><br><span class="line">        ),</span><br><span class="line">        new Image.network(&apos;xxx&apos;),</span><br><span class="line">      ],</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GridView</p>
+<ul>
+<li>属性<br>crossAxisSpacing 网格间空隙<br>crossAxisCount 网格列数<br>childAspectRatio 设置宽高比<br>maxCrossAxisExtent 排列每一项最大宽度</li>
+<li>GridView.count</li>
+<li>GridView.builder</li>
+<li>GridView.custom</li>
+<li>GridView.extent<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">home: Scaffold(</span><br><span class="line">    appBar: AppBar(</span><br><span class="line">      title: Text(&apos;file&apos;),</span><br><span class="line">    ),</span><br><span class="line">    body: GridView.count(</span><br><span class="line">      padding: EdgeInsets.all(10),</span><br><span class="line">      crossAxisSpacing: 6,</span><br><span class="line">      crossAxisCount: 3,</span><br><span class="line">      childAspectRatio: 1,</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.account_circle),</span><br><span class="line">          title: Text(&apos;111&apos;),</span><br><span class="line">        ),</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.account_circle),</span><br><span class="line">          title: Text(&apos;222&apos;),</span><br><span class="line">        ),</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.account_circle),</span><br><span class="line">          title: Text(&apos;333&apos;),</span><br><span class="line">        ),</span><br><span class="line">        new ListTile(</span><br><span class="line">          leading: new Icon(Icons.account_circle),</span><br><span class="line">          title: Text(&apos;444&apos;),</span><br><span class="line">        ),</span><br><span class="line">      ],</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>PageView 可横向纵向滚动 </p>
+<ol>
+<li>onPageChanged事件 可监听当前页面index</li>
+<li>pageSnapping 取消滑动跳页功能 </li>
+<li>scrollDirection 滚动方向</li>
+</ol>
+</li>
+<li><p>AppBar参数</p>
+<ol>
+<li>leading 标题前显示一个控件</li>
+<li>title 标题文字</li>
+<li>actions 标题右侧控件</li>
+<li>bottom 一个AppBarBottomWidget对象, 用来在 Toolbar 标题下面显示一个 Tab 导航栏, 对应body的children Widget</li>
+</ol>
+</li>
+<li><p>Drawer 会自动在标题左侧加一个menu图表，点击左侧划出</p>
+</li>
+<li><p>endDrawer 会自动在标题右侧加一个menu图表，点击右侧划出</p>
+</li>
+<li><p>GestureDetector 手势组件</p>
+</li>
+<li><p>RefreshIndicator 下拉刷新组件(onRefresh为必有方法)</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/flutter/" rel="tag"># flutter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/flutter环境搭建/" rel="next" title="flutter环境搭建">
+                <i class="fa fa-chevron-left"></i> flutter环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/20/flutter路由/" rel="prev" title="flutter路由">
+                flutter路由 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Han Yanxi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用组件"><span class="nav-number">1.</span> <span class="nav-text">常用组件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Yanxi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
