@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Nginx," />
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="碰到的业务场景：因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的">
+<meta name="keywords" content="Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一次Nginx配置路由经历">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/记录一次nginx配置路由经历/index.html">
 <meta property="og:site_name" content="HyxKiller&#39;s Blog">
+<meta property="og:description" content="碰到的业务场景：因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-22T09:57:32.990Z">
+<meta property="og:updated_time" content="2019-03-19T05:30:40.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="记录一次Nginx配置路由经历">
+<meta name="twitter:description" content="碰到的业务场景：因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/19/记录一次nginx配置路由经历/"/>
 
 
 
 
 
-  <title>categories | HyxKiller's Blog</title>
+  <title>记录一次Nginx配置路由经历 | HyxKiller's Blog</title>
   
 
 
@@ -237,40 +241,208 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/记录一次nginx配置路由经历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HyxKiller's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 5 个分类
+          <h1 class="post-title" itemprop="name headline">记录一次Nginx配置路由经历</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T13:10:06+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  237
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flutter/">flutter</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/Nginx/">Nginx</a><span class="category-list-count">1</span></li></ul></li></ul>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>碰到的业务场景：<br>因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。<br>期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的重定向。<br>后来在调研后，发现还是得在location / 下做文章，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    root   /usr/share/nginx/html;</span><br><span class="line">    index  index.html;</span><br><span class="line">    if ($uri = /xxx) &#123;</span><br><span class="line">        rewrite ^(.*)$ /$1.html last;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    try_files $uri $uri/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当uri碰到需要设置的/xxx路由，做一次rewrite重新匹配，指向目录下的相应html文件，last表示<code>完成该rewrite规则的执行后，停止处理后续rewrite指令集；然后查找匹配改变后URI的新location</code>.</p>
+
       
     </div>
     
     
     
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nginx/" rel="tag"><i class="fa fa-tag"></i> Nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/06/Flutter如何国际化/" rel="next" title="Flutter如何国际化">
+                <i class="fa fa-chevron-left"></i> Flutter如何国际化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
