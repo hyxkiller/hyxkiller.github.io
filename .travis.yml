@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+branches:
+  only:
+    - source
+cache:
+  directories: 
+    - node_modules
+before_install:
+- git config --global user.name 'hyxkiller'
+- git config --global user.email '546495041@qq.com'
+- npm install -g hexo-cli
+
+install:
+- npm i
+
+script:
+- hexo clean 
+- hexo generate
+
+after_success:
+- cd ./public
+- git init
+- git add .
+- git commit -m 'travis ci update'
+- git push --quiet --force https://404f298b1b1fa1d038481bd67529bc218dce336d@github.com/hyxkiller/hyxkiller.github.io.git
+  master
