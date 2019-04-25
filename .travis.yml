@@ -25,4 +25,6 @@ after_success:
 - git init
 - git add .
 - git commit -m 'travis ci update'
-- git push --quiet --force https://9c589f6a742d61eb423b4d7ceb033ce0cbb6d55a@github.com/hyxkiller/hyxkiller.github.io.git master:source
+- git remote add origin https://9c589f6a742d61eb423b4d7ceb033ce0cbb6d55a@github.com/hyxkiller/hyxkiller.github.io.git
+- git pull
+- git push --quiet --force https://9c589f6a742d61eb423b4d7ceb033ce0cbb6d55a@github.com/hyxkiller/hyxkiller.github.io.git master
