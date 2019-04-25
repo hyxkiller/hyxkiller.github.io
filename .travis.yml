@@ -2,22 +2,21 @@ language: node_js
 node_js: stable
 branches:
   only:
-    - source
+  - source
 cache:
-  directories: 
-    - node_modules
+  directories:
+  - node_modules
 before_install:
+- openssl aes-256-cbc -K $encrypted_c8bcf74436a5_key -iv $encrypted_c8bcf74436a5_iv
+  -in id_rsa.enc -out id_rsa -d
 - git config --global user.name 'hyxkiller'
 - git config --global user.email '546495041@qq.com'
 - npm install -g hexo-cli
-
 install:
 - npm i
-
 script:
-- hexo clean 
+- hexo clean
 - hexo generate
-
 after_success:
 - cd ./public
 - git init
