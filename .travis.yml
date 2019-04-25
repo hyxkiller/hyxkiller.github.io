@@ -9,6 +9,9 @@ cache:
 before_install:
 - openssl aes-256-cbc -K $encrypted_c8bcf74436a5_key -iv $encrypted_c8bcf74436a5_iv
   -in id_rsa.enc -out id_rsa -d
+# - chmod 600 ~/.ssh/id_rsa
+# - eval $(ssh-agent)
+# - ssh-add ~/.ssh/id_rsa
 - git config --global user.name 'hyxkiller'
 - git config --global user.email '546495041@qq.com'
 - npm install -g hexo-cli
@@ -22,5 +25,4 @@ after_success:
 - git init
 - git add .
 - git commit -m 'travis ci update'
-- git push --quiet --force https://404f298b1b1fa1d038481bd67529bc218dce336d@github.com/hyxkiller/hyxkiller.github.io.git
-  master
+- git push --quiet --force https://404f298b1b1fa1d038481bd67529bc218dce336d@github.com/hyxkiller/hyxkiller.github.io.git master:master
