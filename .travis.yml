@@ -12,6 +12,8 @@ before_install:
 # - chmod 600 ~/.ssh/id_rsa
 # - eval $(ssh-agent)
 # - ssh-add ~/.ssh/id_rsa
+- git config --global user.name 'hyxkiller'
+- git config --global user.email '546495041@qq.com'
 - npm install -g hexo-cli
 install:
 - npm i
@@ -21,8 +23,6 @@ script:
 after_success:
 - cd ./public
 - git init
-- git config --global user.name 'hyxkiller'
-- git config --global user.email '546495041@qq.com'
 - git add .
 - git commit -m 'travis ci update'
 - git push --quiet --force https://9c589f6a742d61eb423b4d7ceb033ce0cbb6d55a@github.com/hyxkiller/hyxkiller.github.io.git master:source
