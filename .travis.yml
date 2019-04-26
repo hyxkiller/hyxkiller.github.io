@@ -14,6 +14,7 @@ before_install:
 # - ssh-add ~/.ssh/id_rsa
 - git config --global user.name 'hyxkiller'
 - git config --global user.email '546495041@qq.com'
+# - sed -i'' https://github.com/hyxkiller/hyxkiller.github.io.git~https://${GIT_REPO}@github.com/<yourname>/<reopname>.git~" _config.yml
 # - git clone https://github.com/hyxkiller/hyxkiller.github.io.git
 - npm install -g hexo-cli
 install:
@@ -26,4 +27,4 @@ after_script:
 - git init
 - git add .
 - git commit -m 'travis ci update'
-- git push --quiet --force https://${GH_TOKEN}@github.com/hyxkiller/hyxkiller.github.io.git master
+- git push --quiet --force https://${GIT_REPO}@github.com/hyxkiller/hyxkiller.github.io.git master
