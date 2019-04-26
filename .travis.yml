@@ -21,7 +21,8 @@ install:
 - npm i
 script:
 - hexo clean
-- hexo generate
+- hexo generate 
+- hexo deloy
 after_script:
 - cd ./public
 - git init
