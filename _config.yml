@@ -79,8 +79,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://9c589f6a742d61eb423b4d7ceb033ce0cbb6d55a@github.com/hyxkiller/hyxkiller.github.io.git
-  # repository: git@github.com:hyxkiller/hyxkiller.github.io.git
+  # repository: https://9c589f6a742d61eb423b4d7ceb033ce0cbb6d55a@github.com/hyxkiller/hyxkiller.github.io.git
+  repository: git@github.com:hyxkiller/hyxkiller.github.io.git
   branch: master
 
 # 文章末尾添加“本文结束”标记
