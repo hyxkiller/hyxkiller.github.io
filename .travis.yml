@@ -7,13 +7,12 @@ cache:
   directories:
   - node_modules
 before_install:
-# - openssl aes-256-cbc -K $encrypted_c8bcf74436a5_key -iv $encrypted_c8bcf74436a5_iv
-#   -in id_rsa.enc -out id_rsa -d
-# - chmod 600 ~/.ssh/id_rsa
-# - eval $(ssh-agent)
+- openssl aes-256-cbc -K $encrypted_c8bcf74436a5_key -iv $encrypted_c8bcf74436a5_iv
+  -in id_rsa.enc -out id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host http://39.97.40.43\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 # - ssh-add ~/.ssh/id_rsa
 # - sed -i'' https://github.com/hyxkiller/hyxkiller.github.io.git~https://${GIT_REPO}@github.com/<yourname>/<reopname>.git~" _config.yml
-# - git clone https://github.com/hyxkiller/hyxkiller.github.io.git
 - export TZ='Asia/Shanghai'
 - npm install hexo-cli -g
 - chmod +x ./publish.sh
@@ -24,11 +23,6 @@ script:
 - hexo g 
 after_success:
   - ./publish.sh
-# - cd ./public
-# - git init
-# - git add .
-# - git commit -m 'travis ci update'
-# - git push --quiet --force https://${GIT_REPO}@github.com/hyxkiller/hyxkiller.github.io.git master
 env:
     global:
         # Github Pages
