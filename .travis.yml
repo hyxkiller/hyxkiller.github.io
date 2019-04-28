@@ -12,20 +12,24 @@ before_install:
 # - chmod 600 ~/.ssh/id_rsa
 # - eval $(ssh-agent)
 # - ssh-add ~/.ssh/id_rsa
-- git config --global user.name 'hyxkiller'
-- git config --global user.email '546495041@qq.com'
 # - sed -i'' https://github.com/hyxkiller/hyxkiller.github.io.git~https://${GIT_REPO}@github.com/<yourname>/<reopname>.git~" _config.yml
 # - git clone https://github.com/hyxkiller/hyxkiller.github.io.git
-- npm install -g hexo-cli
+- export TZ='Asia/Shanghai'
+- npm install hexo-cli -g
+- chmod +x ./publish.sh
 install:
-- npm i
+- npm install
 script:
 - hexo clean
-- hexo generate 
-# - hexo deploy
+- hexo g 
 after_success:
-- cd ./public
-- git init
-- git add .
-- git commit -m 'travis ci update'
-- git push --quiet --force https://${GIT_REPO}@github.com/hyxkiller/hyxkiller.github.io.git master
+  - ./publish.sh
+# - cd ./public
+# - git init
+# - git add .
+# - git commit -m 'travis ci update'
+# - git push --quiet --force https://${GIT_REPO}@github.com/hyxkiller/hyxkiller.github.io.git master
+env:
+    global:
+        # Github Pages
+        - GH_REF: github.com/hyxkiller/hyxkiller.github.io.git
