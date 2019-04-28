@@ -22,7 +22,7 @@ install:
 script:
 - hexo clean
 - hexo generate 
-- hexo deploy
+# - hexo deploy
 after_success:
 - cd ./public
 - git init
