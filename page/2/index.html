@@ -249,6 +249,402 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/引入谷歌统计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黑洞的诞生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/20/引入谷歌统计/" itemprop="url">引入谷歌统计</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T23:44:04+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="如何加入谷歌统计"><a href="#如何加入谷歌统计" class="headerlink" title="如何加入谷歌统计"></a>如何加入谷歌统计</h2><ol>
+<li>创建或登录到您的 Google Analytics帐号( google.com/analytics)</li>
+<li>在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。<br> <strong>如何设置媒体资源？</strong><ul>
+<li>登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。</li>
+<li>在“媒体资源”列(第二列)中，点击创建新媒体资源。如果您对相应帐号没有“修改”权限，则看不到创建新媒体资源选项。请检查您是否已 从“帐号”列中选择了正确的帐号。</li>
+<li>选择网站或移动应用。如果您选择网站，请跳至第 5 步。如果您选择移动应用，请继续执行第 4 步。</li>
+<li>（移动应用）在“跟踪方法”下，选择 Firebase。从菜单中选择一个应用，然后点击关联应用。</li>
+<li>输入网站名称或应用名称。如果打算在帐号中跟踪多个应用，请使用非常具体的描述性名称，并在其中包含版本号。方便日后管理。（仅限网站）输入网站网址。如果网址的格式不正确，就无法创建媒体资源。</li>
+<li>选择行业类别。</li>
+<li>选择报告时区。此时区将用作报告的每日起止时间，而无论数据来自何处。</li>
+<li>点击获取跟踪 ID。</li>
+</ul>
+</li>
+<li>在您的媒体资源中设置报告数据视图。数据视图支持显示网站的某一部分跟踪数据，过滤掉其他不重要部分的数据。没有创建视图默认是全部网站数据。</li>
+<li>按照说明将跟踪代码添加到您的网站或移动应用。<br> <strong>如何查找跟踪ID？</strong><ul>
+<li>登录到您的 Google Analytics（分析）帐号</li>
+<li>点击左下角管理</li>
+<li>从“帐号”列的菜单中选择一个帐号。</li>
+<li>从“媒体资源”列的菜单中选择一个媒体资源。</li>
+<li>在“媒体资源”下，点击跟踪信息 &gt; 跟踪代码。跟踪 ID 会显示在页面的顶部。     </li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>跟踪代码段 将以下代码段粘贴到网站的每个网页的 <head> 标记之后，并且紧挨着该标记放置。将 GA_TRACKING_ID 替换为您自己的 Google Analytics（分析）跟踪 ID：</head></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">   window.dataLayer = window.dataLayer || [];</span><br><span class="line">   function gtag()&#123;dataLayer.push(arguments);&#125;</span><br><span class="line">   gtag(&apos;js&apos;, new Date());</span><br><span class="line"> </span><br><span class="line">   gtag(&apos;config&apos;, &apos;GA_TRACKING_ID&apos;);</span><br><span class="line"> &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证跟踪代码是否正常工作 要验证跟踪代码是否正常工作，请访问您的网站，并检查您的这次访问是否已在实时报告(在左侧面板中，打开实时类别下的概览。)中记录。</p>
+</li>
+</ul>
+<h2 id="设置事件跟踪"><a href="#设置事件跟踪" class="headerlink" title="设置事件跟踪"></a>设置事件跟踪</h2><ol>
+<li>设置时间目标<ul>
+<li>登录到您的 Google Analytics（分析）帐号 点击左下角管理</li>
+<li>从“帐号”列的菜单中选择一个帐号。</li>
+<li>从“媒体资源”列的菜单中选择一个媒体资源。 从“数据视图”列的菜单中选择一个数据视图。</li>
+<li>点击目标&gt;自定义按钮&gt;继续，填写名称(最好是你自己可以区分的，有意义的名字例如：打赏按钮)，点击类型下的事件&gt;继续&gt;填写类别、操作、标签和价值(可选)&gt;保存即可。</li>
+</ul>
+</li>
+<li><p>设置事件跟踪<br>在你的网页添加如下类似的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a onClick=&quot;ga(&apos;send&apos;, &apos;event&apos;, &apos;你填写的类别&apos;, &apos;你填写的操作&apos;, &apos;你填写的标签&apos;,&apos;你填写的价值&apos;);&quot; href=&quot;打赏链接&quot; target=&quot;_blank”&gt;打赏&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看事件追踪报告 左侧面板实时&gt;事件即可查看</p>
+</li>
+</ol>
+<h2 id="设置异常跟踪"><a href="#设置异常跟踪" class="headerlink" title="设置异常跟踪"></a>设置异常跟踪</h2><p>在您的网站添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;send&apos;, &apos;exception&apos;, [fieldsObject]);</span><br></pre></td></tr></table></figure></p>
+<p>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  // Runs code that may or may not work.</span><br><span class="line">  ....</span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">  ga(&apos;send&apos;, &apos;exception&apos;, &#123;</span><br><span class="line">    &apos;exDescription&apos;: err.message,//可选 标识对异常的说明。</span><br><span class="line">    &apos;exFatal&apos;: false,//可选 true 表示异常属于严重类型。</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="用户识别"><a href="#用户识别" class="headerlink" title="用户识别"></a>用户识别</h2><p>通过<strong>User ID</strong>进行用户身份识别<br><strong>注意</strong>:USER_ID 值应是一个独一无二的永久性非个人身份字符串，在所有设备上代表对应的用户或已登录帐户。</p>
+<ol>
+<li><p>如果userId是已知的，可以直接获取到，则只需添加如下代码即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;create&apos;, &apos;UA-XXXXX-Y&apos;, &apos;auto&apos;, &#123;</span><br><span class="line">    userId: USER_ID</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果userId是未知的，需要调用接口才能获取到，那么在获取到userId后执行如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;set&apos;, &apos;userId&apos;, USER_ID);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>添加该段代码后必须再设置一个事件向谷歌统计发送数据（参考谷歌统计之设置事件跟踪文章），例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;send&apos;, &apos;event&apos;, &apos;authentication&apos;, &apos;user-id available&apos;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="停用谷歌统计"><a href="#停用谷歌统计" class="headerlink" title="停用谷歌统计"></a>停用谷歌统计</h2><p>在网站添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window[&apos;ga-disable-UA-XXXXX-Y&apos;] = true;</span><br></pre></td></tr></table></figure></p>
+<p>其中的值 UA-XXXXX-Y对应于您要停止跟踪的媒体资源 ID。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/flutter请求方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黑洞的诞生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/20/flutter请求方案/" itemprop="url">flutter请求方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T23:41:36+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flutter/" itemprop="url" rel="index">
+                    <span itemprop="name">flutter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  59
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h4><ol>
+<li><p>pubspec.yaml文件中dev_dependencies下加: http: ^0.11.3+17</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dev_dependencies:</span><br><span class="line">    flutter_test:</span><br><span class="line">        sdk: flutter</span><br><span class="line">    http: ^0.11.3+17</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引入<br> import ‘package:http/http.dart’ as http;</p>
+</li>
+<li>使用 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String url = &apos;http://localhost:9002/tabs&apos;;</span><br><span class="line">var res = await http.get(url);</span><br><span class="line">List list = json.decode(res.body);</span><br><span class="line">setState(() &#123;</span><br><span class="line">  newTitle = list;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/flutter修改应用名及图标/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1906,169 +2302,6 @@ location = /50x.html {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Han Yanxi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黑洞的诞生">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/04/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T17:54:55+08:00">
-                2018-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  73
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2119,7 +2352,7 @@ location = /50x.html {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2141,7 +2374,7 @@ location = /50x.html {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
