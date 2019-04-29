@@ -26,12 +26,12 @@ install:
 script:
 - hexo clean
 - hexo g
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/public root@39.97.40.43:/usr/local/nginx/public
-  on:
-    branch: master
+# deploy:
+#   provider: script
+#   skip_cleanup: true
+#   script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/public root@39.97.40.43:/usr/local/nginx/public
+#   on:
+#     branch: master
 after_success:
 - ./publish.sh
 env:
