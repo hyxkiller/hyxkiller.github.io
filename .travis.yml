@@ -8,6 +8,8 @@ cache:
   - node_modules
 before_install:
 - openssl aes-256-cbc -K $encrypted_c8bcf74436a5_key -iv $encrypted_c8bcf74436a5_iv
+  -in travis_rsa.pub.enc -out ~\/.ssh/travis_rsa.pub -d
+- openssl aes-256-cbc -K $encrypted_c8bcf74436a5_key -iv $encrypted_c8bcf74436a5_iv
   -in id_rsa.enc -out id_rsa -d
 - chmod 600 id_rsa
 - echo -e "Host http://39.97.40.43\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
@@ -18,10 +20,9 @@ install:
 - npm install
 script:
 - hexo clean
-- hexo g 
+- hexo g
 after_success:
-  - ./publish.sh
+- ./publish.sh
 env:
-    global:
-        # Github Pages
-        - GH_REF: github.com/hyxkiller/hyxkiller.github.io.git
+  global:
+  - GH_REF: github.com/hyxkiller/hyxkiller.github.io.git
