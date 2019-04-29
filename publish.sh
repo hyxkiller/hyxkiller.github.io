@@ -19,4 +19,5 @@ git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
 git push --force --quiet "https://${GIT_REPO}@${GH_REF}" master:master
 
 # rsync -rv --delete -e 'ssh -o stricthostkeychecking=no -p 80' public/ root@http://39.97.40.43:/usr/local/nginx/
-scp -o stricthostkeychecking=no -P 22 -r public/* root@39.97.40.43:/usr/local/nginx/
+rsync -r --delete-after --quiet /usr/local/nginx/ root@39.97.40.43:/usr/local/nginx/public
+# scp -o stricthostkeychecking=no -P 22 -r public/* root@39.97.40.43:/usr/local/nginx/
