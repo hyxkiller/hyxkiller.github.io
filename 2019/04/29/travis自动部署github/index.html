@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端," />
+  <meta name="keywords" content="hexo,travis," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="方案1文件代码123456789101112131415161718192021222324252627import React, &amp;#123; Component &amp;#125; from &amp;quot;react&amp;quot;;export default function asyncComponent(importComponent) &amp;#123;    class AsyncComponent">
-<meta name="keywords" content="前端">
+<meta name="description" content="写在前面任何一个项目的手动部署都会让开发觉得很繁琐，所以学一点CI/CD的简单知识也有一定必要。经过调研发现和github集成较好的是travis这一工具。当然也是为了解决换了电脑还要重新配置hexo那一套东西的问题。至于travis与github的项目关联就不再赘述，网上很多博客都有介绍。主要说一下配置过程中遇到的问题。 整体思路因为hexo集成到github的master分支的是public下">
+<meta name="keywords" content="hexo,travis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React按需加载">
-<meta property="og:url" content="http://yoursite.com/2019/01/09/React按需加载/index.html">
+<meta property="og:title" content="travis自动部署github">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/travis自动部署github/index.html">
 <meta property="og:site_name" content="黑洞的诞生">
-<meta property="og:description" content="方案1文件代码123456789101112131415161718192021222324252627import React, &amp;#123; Component &amp;#125; from &amp;quot;react&amp;quot;;export default function asyncComponent(importComponent) &amp;#123;    class AsyncComponent">
+<meta property="og:description" content="写在前面任何一个项目的手动部署都会让开发觉得很繁琐，所以学一点CI/CD的简单知识也有一定必要。经过调研发现和github集成较好的是travis这一工具。当然也是为了解决换了电脑还要重新配置hexo那一套东西的问题。至于travis与github的项目关联就不再赘述，网上很多博客都有介绍。主要说一下配置过程中遇到的问题。 整体思路因为hexo集成到github的master分支的是public下">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/29/travis自动部署github/no_layout.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/29/travis自动部署github/variable.jpg">
 <meta property="og:updated_time" content="2019-04-30T02:22:57.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React按需加载">
-<meta name="twitter:description" content="方案1文件代码123456789101112131415161718192021222324252627import React, &amp;#123; Component &amp;#125; from &amp;quot;react&amp;quot;;export default function asyncComponent(importComponent) &amp;#123;    class AsyncComponent">
+<meta name="twitter:title" content="travis自动部署github">
+<meta name="twitter:description" content="写在前面任何一个项目的手动部署都会让开发觉得很繁琐，所以学一点CI/CD的简单知识也有一定必要。经过调研发现和github集成较好的是travis这一工具。当然也是为了解决换了电脑还要重新配置hexo那一套东西的问题。至于travis与github的项目关联就不再赘述，网上很多博客都有介绍。主要说一下配置过程中遇到的问题。 整体思路因为hexo集成到github的master分支的是public下">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/29/travis自动部署github/no_layout.jpg">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/09/React按需加载/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/29/travis自动部署github/"/>
 
 
 
 
 
-  <title>React按需加载 | 黑洞的诞生</title>
+  <title>travis自动部署github | 黑洞的诞生</title>
   
 
 
@@ -253,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/React按需加载/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/travis自动部署github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Han Yanxi">
@@ -270,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">React按需加载</h1>
+          <h1 class="post-title" itemprop="name headline">travis自动部署github</h1>
         
 
         <div class="post-meta">
@@ -282,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T23:27:50+08:00">
-                2019-01-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T16:49:03+08:00">
+                2019-04-29
               </time>
             
 
@@ -305,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/travis/" itemprop="url" rel="index">
+                    <span itemprop="name">travis</span>
                   </a>
                 </span>
 
@@ -336,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  227
+                  770
                 </span>
               
 
@@ -352,7 +355,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -373,18 +376,31 @@
       
 
       
-        <h2 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h2><h4 id="文件代码"><a href="#文件代码" class="headerlink" title="文件代码"></a>文件代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">export default function asyncComponent(importComponent) &#123;</span><br><span class="line">    class AsyncComponent extends Component &#123;</span><br><span class="line">        constructor(props) &#123;</span><br><span class="line">            super(props);</span><br><span class="line">            this.state = &#123;</span><br><span class="line">                component: null</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        async componentDidMount() &#123;</span><br><span class="line">            const &#123; default: component &#125; = await importComponent();</span><br><span class="line"></span><br><span class="line">            this.setState(&#123;</span><br><span class="line">                component: component</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        render() &#123;</span><br><span class="line">            const Component = this.state.component;</span><br><span class="line"></span><br><span class="line">            return Component ? &lt;Component &#123;...this.props&#125; /&gt; : null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return AsyncComponent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [</span><br><span class="line">        &quot;react-app&quot;,</span><br><span class="line">        &quot;env&quot;,</span><br><span class="line">        &quot;react-native-stage-0/decorator-support&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="装包"><a href="#装包" class="headerlink" title="装包"></a>装包</h4><ul>
-<li>都是处理babel的插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i babel-preset-env babel-preset-react-native-stage-0 -D</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="组件引入"><a href="#组件引入" class="headerlink" title="组件引入"></a>组件引入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import asyncComponent from &apos;utils/asyncComponent&apos;</span><br><span class="line">const Home = asyncComponent(() =&gt; import(&apos;./components/home&apos;));</span><br></pre></td></tr></table></figure>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>任何一个项目的手动部署都会让开发觉得很繁琐，所以学一点CI/CD的简单知识也有一定必要。经过调研发现和github集成较好的是travis这一工具。当然也是为了解决换了电脑还要重新配置hexo那一套东西的问题。<br>至于travis与github的项目关联就不再赘述，网上很多博客都有介绍。主要说一下配置过程中遇到的问题。</p>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><p>因为hexo集成到github的master分支的是public下的静态文件，所以采用另一分支保存hexo配置及<code>.travis.yml</code>的方案，这样随时随地登录github就可以修改博客内容并提交一次commit，告知travis执行新的部署工作。</p>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><h4 id="本地可以生成静态文件，travis执行hexo-g出现No-layout的情况-另一表现是生成的html都是空白的"><a href="#本地可以生成静态文件，travis执行hexo-g出现No-layout的情况-另一表现是生成的html都是空白的" class="headerlink" title="本地可以生成静态文件，travis执行hexo g出现No layout的情况(另一表现是生成的html都是空白的)"></a>本地可以生成静态文件，travis执行<code>hexo g</code>出现No layout的情况(另一表现是生成的html都是空白的)</h4><p><img src="/2019/04/29/travis自动部署github/no_layout.jpg" alt="travis"><br>原因是使用next主题，但是没有把next主题的文件push到github，因为在本地装这个主题的时候next文件夹内部也有.git, .gitignore文件，这时候在github里这个文件是点不开的，需要执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git .gitignore</span><br><span class="line">git rm -r --cached themes/next      // 删除next的本地缓存</span><br></pre></td></tr></table></figure></p>
+<p>然后重新提交，即可通过travis正常生成静态文件。</p>
 <hr>
-<h2 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h2><h4 id="引入react-loadable"><a href="#引入react-loadable" class="headerlink" title="引入react-loadable"></a>引入react-loadable</h4><ul>
-<li>好处：可监听组件加载不到的状态  </li>
-<li>应用：在不用service-worker的情况下重新部署时，如果用户之前页面没有关，跳路由时，会在服务器找不到相应的chunk文件，此时会通过监听这一状态，返回一个可以自动reload的页面</li>
-</ul>
+<h4 id="服务器无法下载travis"><a href="#服务器无法下载travis" class="headerlink" title="服务器无法下载travis"></a>服务器无法下载travis</h4><ol>
+<li><p>执行<code>gem sources -l</code>, 如果结果是<code>https://rubygems.org/</code>, 会有源的问题，先换源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后更新gem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update --system</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后按照网上很多人的博客是可以进行第四步下载了，但我这遇到一个大概意思是服务器ruby版本是2.0，但下载travis 的时候用的是1.10版本的ruby的问题，之后装了一些包才整好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ruby-devel rubygems</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载travis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install travis</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="密钥名字的问题"><a href="#密钥名字的问题" class="headerlink" title="密钥名字的问题"></a>密钥名字的问题</h4><p>在执行将public文件push到master分支的过程中，需要在地址前写用于github和travis匹配的key，这里的名字是设置在travis环境变量里的<code>变量名</code>！<br><img src="/2019/04/29/travis自动部署github/variable.jpg" alt="variable"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force --quiet &quot;https://$&#123;GIT_REPO&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="master-commit树被清空"><a href="#master-commit树被清空" class="headerlink" title="master commit树被清空"></a>master commit树被清空</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">after_success:</span><br><span class="line">  - cd ./public</span><br><span class="line">  - git init</span><br><span class="line">  - git config user.name &quot;yourname&quot;</span><br><span class="line">  - git config user.email &quot;your email&quot;</span><br><span class="line">  - git add .</span><br><span class="line">  - git commit -m &quot;update&quot;</span><br><span class="line">  - git push --force --quiet &quot;https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br></pre></td></tr></table></figure>
+<p>如果是这样执行，每次都是将public目录下的文件重新生成了一个git项目，然后强制覆盖提交到了master分支下，这就是问题的所在。<br>需要做以下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">after_success:</span><br><span class="line">    - git clone https://$&#123;GH_REF&#125; .deploy_git</span><br><span class="line">    - cd .deploy_git</span><br><span class="line">    - git checkout master</span><br><span class="line">    - cd ../</span><br><span class="line">    - mv .deploy_git/.git/ ./public/</span><br><span class="line">    - cd ./public</span><br><span class="line">    - git config user.name &quot;yourname&quot;</span><br><span class="line">    - git config user.email &quot;your email&quot;</span><br><span class="line">    - git add .</span><br><span class="line">    - git commit -m &quot;Travis CI Auto Builder&quot;</span><br><span class="line">    - git push --force --quiet &quot;https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br></pre></td></tr></table></figure></p>
+<p>先将博客项目clone到本地的<code>.deploy_git</code>目录下（目录名可自定义）,然后切换到master分支，将master分支下的.git目录拷贝到了public目录下，接着继续后面的commit操作。</p>
 
       
     </div>
@@ -412,7 +428,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+            <a href="/tags/travis/" rel="tag"><i class="fa fa-tag"></i> travis</a>
           
         </div>
       
@@ -425,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/09/深浅拷贝/" rel="next" title="深浅拷贝">
-                <i class="fa fa-chevron-left"></i> 深浅拷贝
+              <a href="/2019/04/15/如何处理循环异步问题/" rel="next" title="如何处理循环异步问题">
+                <i class="fa fa-chevron-left"></i> 如何处理循环异步问题
               </a>
             
           </div>
@@ -434,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/09/React多页面应用如何配置/" rel="prev" title="React多页面应用如何配置">
-                React多页面应用如何配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -585,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案1"><span class="nav-number">1.</span> <span class="nav-text">方案1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文件代码"><span class="nav-number">1.0.1.</span> <span class="nav-text">文件代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#babelrc"><span class="nav-number">1.0.2.</span> <span class="nav-text">.babelrc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装包"><span class="nav-number">1.0.3.</span> <span class="nav-text">装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件引入"><span class="nav-number">1.0.4.</span> <span class="nav-text">组件引入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案2"><span class="nav-number">2.</span> <span class="nav-text">方案2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入react-loadable"><span class="nav-number">2.0.1.</span> <span class="nav-text">引入react-loadable</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整体思路"><span class="nav-number">2.</span> <span class="nav-text">整体思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">可能遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地可以生成静态文件，travis执行hexo-g出现No-layout的情况-另一表现是生成的html都是空白的"><span class="nav-number">3.0.1.</span> <span class="nav-text">本地可以生成静态文件，travis执行hexo g出现No layout的情况(另一表现是生成的html都是空白的)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器无法下载travis"><span class="nav-number">3.0.2.</span> <span class="nav-text">服务器无法下载travis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密钥名字的问题"><span class="nav-number">3.0.3.</span> <span class="nav-text">密钥名字的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#master-commit树被清空"><span class="nav-number">3.0.4.</span> <span class="nav-text">master commit树被清空</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

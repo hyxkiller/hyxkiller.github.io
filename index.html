@@ -249,6 +249,207 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/travis自动部署github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黑洞的诞生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/29/travis自动部署github/" itemprop="url">travis自动部署github</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T16:49:03+08:00">
+                2019-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/travis/" itemprop="url" rel="index">
+                    <span itemprop="name">travis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  770
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>任何一个项目的手动部署都会让开发觉得很繁琐，所以学一点CI/CD的简单知识也有一定必要。经过调研发现和github集成较好的是travis这一工具。当然也是为了解决换了电脑还要重新配置hexo那一套东西的问题。<br>至于travis与github的项目关联就不再赘述，网上很多博客都有介绍。主要说一下配置过程中遇到的问题。</p>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><p>因为hexo集成到github的master分支的是public下的静态文件，所以采用另一分支保存hexo配置及<code>.travis.yml</code>的方案，这样随时随地登录github就可以修改博客内容并提交一次commit，告知travis执行新的部署工作。</p>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><h4 id="本地可以生成静态文件，travis执行hexo-g出现No-layout的情况-另一表现是生成的html都是空白的"><a href="#本地可以生成静态文件，travis执行hexo-g出现No-layout的情况-另一表现是生成的html都是空白的" class="headerlink" title="本地可以生成静态文件，travis执行hexo g出现No layout的情况(另一表现是生成的html都是空白的)"></a>本地可以生成静态文件，travis执行<code>hexo g</code>出现No layout的情况(另一表现是生成的html都是空白的)</h4><p><img src="/2019/04/29/travis自动部署github/no_layout.jpg" alt="travis"><br>原因是使用next主题，但是没有把next主题的文件push到github，因为在本地装这个主题的时候next文件夹内部也有.git, .gitignore文件，这时候在github里这个文件是点不开的，需要执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git .gitignore</span><br><span class="line">git rm -r --cached themes/next      // 删除next的本地缓存</span><br></pre></td></tr></table></figure></p>
+<p>然后重新提交，即可通过travis正常生成静态文件。</p>
+<hr>
+<h4 id="服务器无法下载travis"><a href="#服务器无法下载travis" class="headerlink" title="服务器无法下载travis"></a>服务器无法下载travis</h4><ol>
+<li><p>执行<code>gem sources -l</code>, 如果结果是<code>https://rubygems.org/</code>, 会有源的问题，先换源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后更新gem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update --system</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后按照网上很多人的博客是可以进行第四步下载了，但我这遇到一个大概意思是服务器ruby版本是2.0，但下载travis 的时候用的是1.10版本的ruby的问题，之后装了一些包才整好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ruby-devel rubygems</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载travis</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install travis</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="密钥名字的问题"><a href="#密钥名字的问题" class="headerlink" title="密钥名字的问题"></a>密钥名字的问题</h4><p>在执行将public文件push到master分支的过程中，需要在地址前写用于github和travis匹配的key，这里的名字是设置在travis环境变量里的<code>变量名</code>！<br><img src="/2019/04/29/travis自动部署github/variable.jpg" alt="variable"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force --quiet &quot;https://$&#123;GIT_REPO&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="master-commit树被清空"><a href="#master-commit树被清空" class="headerlink" title="master commit树被清空"></a>master commit树被清空</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">after_success:</span><br><span class="line">  - cd ./public</span><br><span class="line">  - git init</span><br><span class="line">  - git config user.name &quot;yourname&quot;</span><br><span class="line">  - git config user.email &quot;your email&quot;</span><br><span class="line">  - git add .</span><br><span class="line">  - git commit -m &quot;update&quot;</span><br><span class="line">  - git push --force --quiet &quot;https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br></pre></td></tr></table></figure>
+<p>如果是这样执行，每次都是将public目录下的文件重新生成了一个git项目，然后强制覆盖提交到了master分支下，这就是问题的所在。<br>需要做以下修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">after_success:</span><br><span class="line">    - git clone https://$&#123;GH_REF&#125; .deploy_git</span><br><span class="line">    - cd .deploy_git</span><br><span class="line">    - git checkout master</span><br><span class="line">    - cd ../</span><br><span class="line">    - mv .deploy_git/.git/ ./public/</span><br><span class="line">    - cd ./public</span><br><span class="line">    - git config user.name &quot;yourname&quot;</span><br><span class="line">    - git config user.email &quot;your email&quot;</span><br><span class="line">    - git add .</span><br><span class="line">    - git commit -m &quot;Travis CI Auto Builder&quot;</span><br><span class="line">    - git push --force --quiet &quot;https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;&quot; master:master</span><br></pre></td></tr></table></figure></p>
+<p>先将博客项目clone到本地的<code>.deploy_git</code>目录下（目录名可自定义）,然后切换到master分支，将master分支下的.git目录拷贝到了public目录下，接着继续后面的commit操作。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/如何处理循环异步问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1972,190 +2173,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/flutter请求方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Han Yanxi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黑洞的诞生">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/20/flutter请求方案/" itemprop="url">flutter请求方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T23:41:36+08:00">
-                2019-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index">
-                    <span itemprop="name">flutter</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  59
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h4><ol>
-<li><p>pubspec.yaml文件中dev_dependencies下加: http: ^0.11.3+17</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dev_dependencies:</span><br><span class="line">    flutter_test:</span><br><span class="line">        sdk: flutter</span><br><span class="line">    http: ^0.11.3+17</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引入<br> import ‘package:http/http.dart’ as http;</p>
-</li>
-<li>使用 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String url = &apos;http://localhost:9002/tabs&apos;;</span><br><span class="line">var res = await http.get(url);</span><br><span class="line">List list = json.decode(res.body);</span><br><span class="line">setState(() &#123;</span><br><span class="line">  newTitle = list;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2206,7 +2223,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2217,7 +2234,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2228,7 +2245,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2299,7 +2316,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7k字</span>
+  <span class="post-count">博客全站共7.7k字</span>
 </div>
         
 
