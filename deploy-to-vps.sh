@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ev
 
 rm -rf /usr/local/nginx/public/
 cd /usr/local/nginx/

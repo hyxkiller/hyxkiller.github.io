@@ -37,7 +37,9 @@ script:
 after_success:
 - export SSHPASS=$DEPLOY_PASS
 - ./publish.sh
-- sshpass -e ssh  -o stricthostkeychecking=no root@39.97.40.43 "sh ./deploy-to-vps.sh"
+- sshpass -e ssh  -o stricthostkeychecking=no root@39.97.40.43 
+- ./deploy-to-vps.sh
+
 env:
   global:
   - GH_REF: github.com/hyxkiller/hyxkiller.github.io.git
