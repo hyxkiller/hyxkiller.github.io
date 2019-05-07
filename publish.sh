@@ -18,6 +18,7 @@ git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
 # Github Pages
 git push --force --quiet "https://${GIT_REPO}@${GH_REF}" master:master
 
+yum -y install sshpass
 sshpass -e ssh  -o stricthostkeychecking=no root@39.97.40.43
 # ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@39.97.40.43
 rm -f /usr/local/nginx/public/
