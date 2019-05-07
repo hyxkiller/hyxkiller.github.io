@@ -21,6 +21,7 @@ before_install:
 - export TZ='Asia/Shanghai'
 - npm install hexo-cli -g
 - chmod +x ./publish.sh
+- sudo apt-get update
 install:
 - npm install
 script:
