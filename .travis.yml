@@ -37,8 +37,8 @@ script:
 after_success:
 - export SSHPASS=$DEPLOY_PASS
 - ./publish.sh
-# - sshpass -e ssh -o stricthostkeychecking=no root@39.97.40.43 "sh ./deploy-to-vps.sh"
-- sshpass -e scp -o stricthostkeychecking=no ./public/* root@39.97.40.43:/usr/local/nginx/public/
+- sshpass -e ssh -o stricthostkeychecking=no root@39.97.40.43 "sh /deploy-to-vps.sh"
+# - sshpass -e scp -o stricthostkeychecking=no -r ./public/* root@39.97.40.43:/usr/local/nginx/public/
 # - ./deploy-to-vps.sh
 
 env:
