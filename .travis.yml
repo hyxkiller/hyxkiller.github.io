@@ -39,7 +39,7 @@ after_success:
 - ./publish.sh
 - zip public.zip public
 # - sshpass -e ssh -o stricthostkeychecking=no root@39.97.40.43 "sh deploy-to-vps.sh"
-- sshpass -e scp -o stricthostkeychecking=no -r ./public.zip root@39.97.40.43:/usr/local/nginx && unzip public.zip
+- sshpass -e scp -o stricthostkeychecking=no -r ./public.zip root@39.97.40.43:/usr/local/nginx && rm -rf public && unzip public.zip
 # - ./deploy-to-vps.sh
 
 env:
