@@ -37,9 +37,8 @@ script:
 after_success:
 - export SSHPASS=$DEPLOY_PASS
 - ./publish.sh
-- zip public.zip public
-# - sshpass -e ssh -o stricthostkeychecking=no root@39.97.40.43 "sh deploy-to-vps.sh"
-- sshpass -e scp -o stricthostkeychecking=no -r ./public.zip root@39.97.40.43:/usr/local/nginx && rm -rf public && unzip public.zip
+# - zip public.zip public
+- sshpass -e scp -o stricthostkeychecking=no -r public root@39.97.40.43:/usr/local/nginx
 # - ./deploy-to-vps.sh
 
 env:
