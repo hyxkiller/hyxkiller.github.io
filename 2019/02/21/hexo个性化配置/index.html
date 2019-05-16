@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="添加fork me on github点击这里(文字)或者这里(图表)挑选样式,复制代码,将其粘贴到themes/next/layout/_layout.swig文件中的&amp;lt;div class=&amp;quot;headband&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;下面,注意不是里面,并将href改为你的github地址。 添加动态背景就是你现在看到页面的背景线修改themes/next/_c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-16T02:00:11.893Z">
+<meta property="og:updated_time" content="2019-05-16T03:42:15.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo个性化配置">
 <meta name="twitter:description" content="添加fork me on github点击这里(文字)或者这里(图表)挑选样式,复制代码,将其粘贴到themes/next/layout/_layout.swig文件中的&amp;lt;div class=&amp;quot;headband&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;下面,注意不是里面,并将href改为你的github地址。 添加动态背景就是你现在看到页面的背景线修改themes/next/_c">
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  930
+                  1k
                 </span>
               
 
@@ -401,6 +401,12 @@
 <p>其中<code>totalcount(site)</code>需用双大括号包起来。</p>
 <h3 id="设置网站的图标Favicon"><a href="#设置网站的图标Favicon" class="headerlink" title="设置网站的图标Favicon"></a>设置网站的图标Favicon</h3><p>在<a href="https://www.easyicon.net/" target="_blank" rel="noopener">EasyIcon</a>中找一张ico图标,或者去别的网站下载或者制作，然后把图标放在/themes/next/source/images里，并且修改主题配置文件<code>themes/next/_config.yml</code>中的favicon为该文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/basketball.ico</span><br><span class="line">  medium: /images/basketball.ico</span><br><span class="line">  apple_touch_icon: /images/basketball.ico</span><br><span class="line">  safari_pinned_tab: /images/basketball.ico</span><br></pre></td></tr></table></figure></p>
 <h3 id="实现统计功能"><a href="#实现统计功能" class="headerlink" title="实现统计功能"></a>实现统计功能</h3><p>安装hexo-wordcount<br><code>npm install hexo-wordcount --save</code><br>然后在主题配置文件中，修改以下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true</span><br><span class="line">  min2read: true</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加百度统计"><a href="#添加百度统计" class="headerlink" title="添加百度统计"></a>添加百度统计</h3><p>登录<a href="http://tongji.baidu.com/" target="_blank" rel="noopener">百度统计</a>，按步骤注册账号，之后把生成的baidu_analytics的key添加到<code>/themes/next/_config.yml</code>中的baidu_analytics，部署后查看是否成功。</p>
+<h3 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h3><p>经过查看next第三方插件的官方文档和多个博客，最终决定采用<code>来必力</code>。</p>
+<ul>
+<li>注册账号<br><a href="www.livere.com">来必力</a></li>
+<li>将data-uid的值添加到<code>/themes/next/_config.yml</code>中的livere_uid，可在本地查看是否成功。</li>
+</ul>
 
       
     </div>
@@ -420,6 +426,35 @@
       
     </div>
     
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创，感谢支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zfb.jpg" alt="Han Yanxi 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/wx.jpg" alt="Han Yanxi 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -472,6 +507,44 @@
 
     <div class="post-spread">
       
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
     </div>
   </div>
 
@@ -481,6 +554,11 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDI0OC8yMDc4MQ=="></div>
+    </div>
 
   
 
@@ -601,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加fork-me-on-github"><span class="nav-number">1.</span> <span class="nav-text">添加fork me on github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加动态背景"><span class="nav-number">2.</span> <span class="nav-text">添加动态背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章内链接文本样式"><span class="nav-number">3.</span> <span class="nav-text">修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部tags前的"><span class="nav-number">4.</span> <span class="nav-text">修改文章底部tags前的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文章末尾统一添加“本文结束”标记"><span class="nav-number">5.</span> <span class="nav-text">在文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏社交小图标设置"><span class="nav-number">6.</span> <span class="nav-text">侧边栏社交小图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部增加访问量"><span class="nav-number">7.</span> <span class="nav-text">在网站底部增加访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加热度"><span class="nav-number">8.</span> <span class="nav-text">添加热度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加网站底部字数统计"><span class="nav-number">9.</span> <span class="nav-text">添加网站底部字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置网站的图标Favicon"><span class="nav-number">10.</span> <span class="nav-text">设置网站的图标Favicon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现统计功能"><span class="nav-number">11.</span> <span class="nav-text">实现统计功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加fork-me-on-github"><span class="nav-number">1.</span> <span class="nav-text">添加fork me on github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加动态背景"><span class="nav-number">2.</span> <span class="nav-text">添加动态背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章内链接文本样式"><span class="nav-number">3.</span> <span class="nav-text">修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部tags前的"><span class="nav-number">4.</span> <span class="nav-text">修改文章底部tags前的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文章末尾统一添加“本文结束”标记"><span class="nav-number">5.</span> <span class="nav-text">在文章末尾统一添加“本文结束”标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏社交小图标设置"><span class="nav-number">6.</span> <span class="nav-text">侧边栏社交小图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部增加访问量"><span class="nav-number">7.</span> <span class="nav-text">在网站底部增加访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加热度"><span class="nav-number">8.</span> <span class="nav-text">添加热度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加网站底部字数统计"><span class="nav-number">9.</span> <span class="nav-text">添加网站底部字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置网站的图标Favicon"><span class="nav-number">10.</span> <span class="nav-text">设置网站的图标Favicon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现统计功能"><span class="nav-number">11.</span> <span class="nav-text">实现统计功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加百度统计"><span class="nav-number">12.</span> <span class="nav-text">添加百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加评论功能"><span class="nav-number">13.</span> <span class="nav-text">添加评论功能</span></a></li></ol></div>
             
 
           </div>
@@ -622,11 +700,20 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+.fa-email::before{
+  content: "\f003"
+}
+</style>
 <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Han Yanxi</span>
+  <span class="with-love">
+    <i class="fa fa-email"></i>
+  </span>
+  <span class="email" itemprop="copyrightHolder">15811197646@163.com</span>
 
   
 </div>
@@ -639,8 +726,13 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8k字</span>
+  <span class="post-count">博客全站共8.2k字</span>
 </div>
+
+<div class="BbeiAn-info">
+  <span>京ICP备19017946号</span>
+</div>
+
         
 
 
@@ -776,6 +868,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
