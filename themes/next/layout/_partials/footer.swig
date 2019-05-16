@@ -1,4 +1,9 @@
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<style>
+.fa-email::before{
+  content: "\f003"
+}
+</style>
 <div class="copyright">{#
 #}{% set current = date(Date.now(), "YYYY") %}{#
 #}&copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} &mdash; {% endif %}{#
@@ -7,6 +12,10 @@
     <i class="fa fa-{{ theme.footer.icon }}"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span>
+  <span class="with-love">
+    <i class="fa fa-email"></i>
+  </span>
+  <span class="email" itemprop="copyrightHolder">15811197646@163.com</span>
 
   {% if theme.post_wordcount.totalcount %}
     <span class="post-meta-divider">|</span>
@@ -31,4 +40,8 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
+</div>
+
+<div class="BbeiAn-info">
+  <span>京ICP备19017946号</span>
 </div>

@@ -120,3 +120,12 @@ post_wordcount:
   wordcount: true
   min2read: true
 ```
+
+### 添加百度统计
+登录[百度统计](http://tongji.baidu.com/)，按步骤注册账号，之后把生成的baidu_analytics的key添加到``/themes/next/_config.yml``中的baidu_analytics，部署后查看是否成功。
+
+### 添加评论功能
+经过查看next第三方插件的官方文档和多个博客，最终决定采用``来必力``。
++ 注册账号
+[来必力](www.livere.com)
++ 将data-uid的值添加到``/themes/next/_config.yml``中的livere_uid，可在本地查看是否成功。
