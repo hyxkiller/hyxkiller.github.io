@@ -129,3 +129,22 @@ post_wordcount:
 + 注册账号
 [来必力](https://www.livere.com/)
 + 将data-uid的值添加到``/themes/next/_config.yml``中的livere_uid，可在本地查看是否成功。
+
+### 添加搜索功能
+##### 安装 hexo-generator-searchdb
+```
+npm i hexo-generator-searchdb -S
+```
+##### 编辑站点配置文件(_config.yml)，新增以下内容到任意位置：
+```
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+```
+##### 编辑主题配置文件(/themes/next/_config.yml)，启用本地搜索功能：
+```
+local_search:
+  enable: true
+```
