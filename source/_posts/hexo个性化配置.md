@@ -127,5 +127,5 @@ post_wordcount:
 ### 添加评论功能
 经过查看next第三方插件的官方文档和多个博客，最终决定采用``来必力``。
 + 注册账号
-[来必力](www.livere.com)
+[来必力](https://www.livere.com/)
 + 将data-uid的值添加到``/themes/next/_config.yml``中的livere_uid，可在本地查看是否成功。
