@@ -293,6 +293,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/hexo个性化配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Han Yanxi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="江山如画">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/21/hexo个性化配置/" itemprop="url">hexo个性化配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T16:52:30+08:00">
+                2019-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="添加fork-me-on-github"><a href="#添加fork-me-on-github" class="headerlink" title="添加fork me on github"></a>添加fork me on github</h3><p>点击<a href="https://github.blog/2008-12-19-github-ribbons/" target="_blank" rel="noopener">这里(文字)</a>或者<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">这里(图表)</a>挑选样式,复制代码,将其粘贴到themes/next/layout/_layout.swig文件中的<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>下面,注意不是里面,并将href改为你的github地址。</p>
+<h3 id="添加动态背景"><a href="#添加动态背景" class="headerlink" title="添加动态背景"></a>添加动态背景</h3><p>就是你现在看到页面的背景线<br>修改themes/next/_config.yml下的canvas_nest: <strong>false</strong>为canvas_nest: <strong>true</strong></p>
+<h3 id="修改文章内链接文本样式"><a href="#修改文章内链接文本样式" class="headerlink" title="修改文章内链接文本样式"></a>修改文章内链接文本样式</h3><p>修改文件<code>themes\next\source\css\_common\components\post\post.styl</code>,添加css样式,如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.post-body p a&#123;</span><br><span class="line">  color: #0593d3;</span><br><span class="line">  border-bottom: none;</span><br><span class="line">  border-bottom: 1px solid #0593d3;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    color: #fc6423;</span><br><span class="line">    border-bottom: none;</span><br><span class="line">    border-bottom: 1px solid #fc6423;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>.post-body 是为了不影响标题,选择 p 是为了不影响首页“阅读全文”的显示样式,颜色可以自己定义。</p>
+<h3 id="修改文章底部tags前的"><a href="#修改文章底部tags前的" class="headerlink" title="修改文章底部tags前的"></a>修改文章底部tags前的</h3><p>修改模板<code>/themes/next/layout/_macro/post.swig</code>,搜索 rel=”tag”&gt;#,将 # 换成 <code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>,需重启服务生效</p>
+<h3 id="在文章末尾统一添加“本文结束”标记"><a href="#在文章末尾统一添加“本文结束”标记" class="headerlink" title="在文章末尾统一添加“本文结束”标记"></a>在文章末尾统一添加“本文结束”标记</h3><p>在<code>\themes\next\layout\_macro</code>下新建<code>passage-end-tag.swig</code>文件,并添加以下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------本文结束&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后打开<code>\themes\next\layout\_macro\post.swig</code>文件，在post-body之后，post-footer之前添加以下代码(post-footer之前两个div):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &#123;% if not is_index %&#125;</span><br><span class="line">    &#123;% include &apos;passage-end-tag.swig&apos; %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>其实很好理解，在里面插入一个引入的.swig代码。最后再在根目录下的主题配置文件(_config.yml)的末尾添加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 文章末尾添加“本文结束”标记</span><br><span class="line">passage_end_tag:</span><br><span class="line">  enabled: true</span><br></pre></td></tr></table></figure></p>
+<h3 id="侧边栏社交小图标设置"><a href="#侧边栏社交小图标设置" class="headerlink" title="侧边栏社交小图标设置"></a>侧边栏社交小图标设置</h3><p>打开next主题配置文件<code>themes/next/_config.yml</code>，搜索<code>social_icons</code>，在<a href="https://fontawesome.com/icons?from=io" target="_blank" rel="noopener">这里</a>找到相应的图标，并将名字复制在如下位置，保存即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/hyxkiller || github</span><br><span class="line">  掘金: https://juejin.im/user/5a708d176fb9a01c9b663da5 || 掘金</span><br><span class="line"></span><br><span class="line">social_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  Github: github-square</span><br><span class="line">  掘金: chevron-double-down</span><br></pre></td></tr></table></figure></p>
+<p><code>enable: true</code>为控制icons是否显示属性</p>
+<h3 id="在网站底部增加访问量"><a href="#在网站底部增加访问量" class="headerlink" title="在网站底部增加访问量"></a>在网站底部增加访问量</h3><p>在<code>\themes\next\layout\_partials\footer.swig</code>文件中，搜索copyright，在前面引入一个库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>再在当前文件下适当位置添加展示统计数据的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">    &lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">    本站访问量:&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此处，<code>busuanzi_value_site_pv</code>为访问量，<code>busuanzi_value_site_uv</code>为访客数<br>添加后执行<code>hexo d -g</code>，刷新即可</p>
+<h3 id="添加热度"><a href="#添加热度" class="headerlink" title="添加热度"></a>添加热度</h3><p>next主题集成<code>leanCloud</code>，打开<code>/themes/next/layout/_macro/post.swig</code>, 搜索<code>leancloud-visitors-count</code>，在这个span中加℃，然后在<code>/themes/next/languages/zh-Hans.yml</code>,将<code>visitors: 阅读次数</code>换为<code>热度</code>。</p>
+<h3 id="添加网站底部字数统计"><a href="#添加网站底部字数统计" class="headerlink" title="添加网站底部字数统计"></a>添加网站底部字数统计</h3><p>安装hexo-wordcount<br><code>npm install hexo-wordcount --save</code><br>然后在<code>/themes/next/layout/_partials/footer.swig</code>文件尾部加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;theme-info&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;powered-by&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;span class=&quot;post-count&quot;&gt;博客全站共 totalcount(site) 字&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>totalcount(site)</code>需用双大括号包起来。</p>
+<h3 id="设置网站的图标Favicon"><a href="#设置网站的图标Favicon" class="headerlink" title="设置网站的图标Favicon"></a>设置网站的图标Favicon</h3><p>在<a href="https://www.easyicon.net/" target="_blank" rel="noopener">EasyIcon</a>中找一张ico图标,或者去别的网站下载或者制作，然后把图标放在/themes/next/source/images里，并且修改主题配置文件<code>themes/next/_config.yml</code>中的favicon为该文件名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/basketball.ico</span><br><span class="line">  medium: /images/basketball.ico</span><br><span class="line">  apple_touch_icon: /images/basketball.ico</span><br><span class="line">  safari_pinned_tab: /images/basketball.ico</span><br></pre></td></tr></table></figure></p>
+<h3 id="实现统计功能"><a href="#实现统计功能" class="headerlink" title="实现统计功能"></a>实现统计功能</h3><p>安装hexo-wordcount<br><code>npm install hexo-wordcount --save</code><br>然后在主题配置文件中，修改以下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true</span><br><span class="line">  min2read: true</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加百度统计"><a href="#添加百度统计" class="headerlink" title="添加百度统计"></a>添加百度统计</h3><p>登录<a href="http://tongji.baidu.com/" target="_blank" rel="noopener">百度统计</a>，按步骤注册账号，之后把生成的baidu_analytics的key添加到<code>/themes/next/_config.yml</code>中的baidu_analytics，部署后查看是否成功。</p>
+<h3 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h3><p>经过查看next第三方插件的官方文档和多个博客，最终决定采用<code>来必力</code>。</p>
+<ul>
+<li>注册账号<br><a href="https://www.livere.com/" target="_blank" rel="noopener">来必力</a></li>
+<li>将data-uid的值添加到<code>/themes/next/_config.yml</code>中的livere_uid，可在本地查看是否成功。</li>
+</ul>
+<h3 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h3><h5 id="安装-hexo-generator-searchdb"><a href="#安装-hexo-generator-searchdb" class="headerlink" title="安装 hexo-generator-searchdb"></a>安装 hexo-generator-searchdb</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-generator-searchdb -S</span><br></pre></td></tr></table></figure>
+<h5 id="编辑站点配置文件-config-yml-，新增以下内容到任意位置："><a href="#编辑站点配置文件-config-yml-，新增以下内容到任意位置：" class="headerlink" title="编辑站点配置文件(_config.yml)，新增以下内容到任意位置："></a>编辑站点配置文件(_config.yml)，新增以下内容到任意位置：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<h5 id="编辑主题配置文件-themes-next-config-yml-，启用本地搜索功能："><a href="#编辑主题配置文件-themes-next-config-yml-，启用本地搜索功能：" class="headerlink" title="编辑主题配置文件(/themes/next/_config.yml)，启用本地搜索功能："></a>编辑主题配置文件(/themes/next/_config.yml)，启用本地搜索功能：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/引入谷歌统计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2100,257 +2302,11 @@ location = /50x.html {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/深浅拷贝/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Han Yanxi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="江山如画">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/09/深浅拷贝/" itemprop="url">深浅拷贝</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T23:02:36+08:00">
-                2019-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  717
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><ul>
-<li><p>基本数据类型（string, number, boolean, null, undefined, Symbol）: <strong>赋值</strong>,两个变量互不影响</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a = &apos;haha&apos;;</span><br><span class="line">let b = a;</span><br><span class="line">a = &apos;hahaha&apos;;</span><br><span class="line">console.log(a); // hahaha</span><br><span class="line">console.log(b); // haha</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引用数据类型(object): <strong>赋址</strong>，两个变量具有相同的引用，指向同一个对象，相互之间有影响</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    name: &apos;haha&apos;,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: &apos;JS&apos;,</span><br><span class="line">        price: 40</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = a;</span><br><span class="line">a.name = &apos;hahaha&apos;;</span><br><span class="line">a.book.price = 50;</span><br><span class="line">console.log(a); // &#123;name: &apos;hahaha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br><span class="line">console.log(b); // &#123;name: &apos;hahaha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><ul>
-<li><p>概念<br>创建一个对象，有原始对象属性值的一份精确拷贝。<br>基本类型: 拷贝<strong>值</strong><br>引用类型: 拷贝<strong>内存地址</strong>，其中一个对象改变了地址，会影响到另一个对象</p>
-</li>
-<li><p>场景</p>
-<ul>
-<li><p>Object.assign()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    name: &apos;haha&apos;,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: &apos;JS&apos;,</span><br><span class="line">        price: 40</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = Object.assign(&#123;&#125;, a);</span><br><span class="line">a.name = &apos;hahaha&apos;;</span><br><span class="line">a.book.price = 50;</span><br><span class="line">console.log(a); // &#123;name: &apos;hahaha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br><span class="line">console.log(b); // &#123;name: &apos;haha&apos;, book: &#123;title: &apos;JS&apos;, price: 50&#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Spread展开运算符<br>同Object.assign()</p>
-</li>
-<li>slice()<br>slice() 方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的<strong>浅拷贝</strong>。原始数组不会被改变。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let a = [0, &quot;1&quot;, [2, 3]];</span><br><span class="line">let b = a.slice(1);</span><br><span class="line">a[1] = &quot;99&quot;;</span><br><span class="line">a[2][0] = 4;</span><br><span class="line">console.log(a); // [0, &quot;99&quot;, [4, 3]]</span><br><span class="line">console.log(b); //  [&quot;1&quot;, [4, 3]]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。拷贝前后两个对象互不影响。</p>
-<ul>
-<li><p>使用场景<br>  JSON.parse(JSON.stringfy(object))</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    name: &quot;haha&quot;,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: &quot;JS&quot;,</span><br><span class="line">        price: 45</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = JSON.parse(JSON.stringify(a));</span><br><span class="line">a.name = &apos;change&apos;;</span><br><span class="line">a.book.price = 100;</span><br><span class="line">console.log(a); // &#123;name: &apos;change&apos;, book: &#123;title: &apos;JS&apos;, price: 100&#125;&#125;</span><br><span class="line">console.log(b); // &#123;name: &apos;haha&apos;, book: &#123;title: &apos;JS&apos;, price: 45&#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>问题</p>
-<ul>
-<li><p>undefined, Symbol, 函数，会直接忽略</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">    name: &apos;haha&apos;,</span><br><span class="line">    a: undefined,</span><br><span class="line">    b: Symbol(&apos;haha&apos;),</span><br><span class="line">    c: function() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">let b = JSON.parse(JSON.stringfy(obj));</span><br><span class="line">console.log(b); // &#123;name: &apos;haha&apos;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>循环引用，会报错</p>
-</li>
-<li>new Date情况下，转换结果不正确</li>
-<li>不能处理正则</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>–</th>
-<th>和原数据是否指向同一对象</th>
-<th>第一层数据为基本数据类型</th>
-<th>原数据中包含子对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>赋值</td>
-<td>是</td>
-<td>改变<strong>会</strong>使原数据一同改变</td>
-<td>改变<strong>会</strong>使原数据一同改变</td>
-</tr>
-<tr>
-<td>浅拷贝</td>
-<td>是</td>
-<td>改变<strong>不会</strong>使原数据一同改变</td>
-<td>改变<strong>会</strong>使原数据一同改变</td>
-</tr>
-<tr>
-<td>深拷贝</td>
-<td>是</td>
-<td>改变<strong>不会</strong>使原数据一同改变</td>
-<td>改变<strong>不会</strong>使原数据一同改变</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2396,7 +2352,7 @@ location = /50x.html {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2498,7 +2454,7 @@ location = /50x.html {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9k字</span>
+  <span class="post-count">博客全站共10.4k字</span>
 </div>
 
 <div class="BbeiAn-info">
