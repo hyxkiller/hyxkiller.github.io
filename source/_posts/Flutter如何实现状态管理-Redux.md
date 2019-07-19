@@ -14,13 +14,13 @@ categories: flutter
 
 #### 接下来开始引入并一步步实现：    
 + 需要将redux及flutter_redux两个库引入，在pubspec.yaml（相当于package.json）文件中：
-    ```
+    ```dart
     dependencies:
         redux: ^3.0.0
         flutter_redux: ^0.5.2
     ```
 + 根据Redux数据流走向，首先定义一个公共Store
-    ```
+    ```dart
     class HYXState {
         ThemeData themeData;
         Locale locale;
@@ -30,7 +30,7 @@ categories: flutter
     存储了主题颜色和国际化语种
     ```
 + 定义Action
-    ```
+    ```dart
     class RefreshLocaleAction {
       final Locale locale;
       RefreshLocaleAction(this.locale);
@@ -42,7 +42,7 @@ categories: flutter
     }
     ```
 + 定义Reducer
-    ```
+    ```dart
     import 'package:redux/redux.dart';
     import './actions.dart';
     
@@ -67,7 +67,7 @@ categories: flutter
     }
     ```
 + 需要定义Reducer方法appReducer（**自定义方法，用于创建store）**，将Store中的每一个参数和action绑定起来，数据流为**用户每发出一个RefreshLocaleAction，会触发器_refresh方法，之后更新HYXState中的locale**
-    ```
+    ```dart
     import './reducer.dart';
     
     HYXState appReducer(HYXState state, action) {
@@ -78,7 +78,7 @@ categories: flutter
     }
     ```
 + 捋清楚好上面的流程后，可以开始实例化store并使用了。类似react-redux提供的Provider包在index.js最外层一样，flutter_redux也提供了StoreProvider用于包括需要的MaterialApp外层，贴出部分重要代码。
-    ```
+    ```dart
     import 'package:flutter_redux/flutter_redux.dart';
     import 'package:redux/redux.dart';
     import 'package:demo1/redux/store.dart';
@@ -108,7 +108,7 @@ categories: flutter
     }
     ```
 + flutter_redux提供了一个StoreConnector方法，将其包在子组件外，t通过converter转化store.state的数据，通过builder返回的组件，也可以使用StoreProvider。
-    ```
+    ```dart
     Widget _itemBuilder(BuildContext context, int index) {
         return StoreConnector<HYXState, Locale>(
           converter: (store) => store.state.locale,
@@ -141,7 +141,7 @@ categories: flutter
       }
     ```
 + 如何触发更新？
-    ```
+    ```dart
     在StoreProvider中使用时，用：
     store.dispatch(RefreshLocaleAction(locale));
     ```

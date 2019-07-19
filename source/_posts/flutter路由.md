@@ -8,7 +8,7 @@ categories: flutter
 #### 路由
 1. 静态路由   
     在相应MaterialApp组件内定义Route，再在需要跳转的地方用以下方法跳转。
-    ```
+    ```dart
     定义：
     return MaterialApp(
       // 命名路由，无法动态传参
@@ -23,7 +23,7 @@ categories: flutter
     ```
 2. 动态路由     
     不需要定义
-    ```
+    ```dart
     跳转：
     Navigator.push(context, MaterialPageRoute(builder: (_){
         return TestRoute(title: '传参');

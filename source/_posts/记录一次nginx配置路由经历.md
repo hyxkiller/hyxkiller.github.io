@@ -9,7 +9,7 @@ categories: Nginx
 因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。
 期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的重定向。
 后来在调研后，发现还是得在location / 下做文章，
-```
+```nginx
         location / {
             root   /usr/share/nginx/html;
             index  index.html;

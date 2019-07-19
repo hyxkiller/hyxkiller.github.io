@@ -148,3 +148,12 @@ search:
 local_search:
   enable: true
 ```
+
+##### 设置首页不显示全文
+将/themes/next/_config.yml文件中的
+```
+auto_excerpt:
+  enable: false
+  length: 150
+```
+enable的false改为true，length为设定文章预览文本长度。

@@ -10,7 +10,7 @@ categories: flutter
 自定义多语言需要实现LocalizationsDelegate和Localizations，通过Localizations使用locale加载当前delegate。
 
 + 实现LocalizationsDelegate
-```
+```dart
 class DemoLocalizationDelegate extends LocalizationsDelegate<DemoLocalizations> {
   DemoLocalizationDelegate();
   @override
@@ -31,7 +31,7 @@ class DemoLocalizationDelegate extends LocalizationsDelegate<DemoLocalizations> 
 ```
 DemoLocalizations为一个自定义对象，会根据创建时的Locale，
 + 实现Localizations
-```
+```dart
 class DemoLocalizations {
   final Locale locale;
   DemoLocalizations(this.locale);
@@ -51,14 +51,14 @@ class DemoLocalizations {
 }
 ```
 + 实现语言实体基类
-```
+```dart
 abstract class LocaleBase {
   String title;
   String haha;
 }
 ```
 + 实现语言实体
-```
+```dart
 import 'localeBase.dart';
 
 class LocaleZHCN extends LocaleBase {
@@ -69,7 +69,7 @@ class LocaleZHCN extends LocaleBase {
 }
 ```
 + 此外，还需要创建一个Localizations的Widget，通过StoreBuilder绑定store，然后用Localizations.override包裹所有页面。将Store和Localizations的locale绑定。
-```
+```dart
 class LocalizationsWidget extends StatefulWidget {
   final Widget child;
   LocalizationsWidget({this.child}) : super();
@@ -92,7 +92,7 @@ class _LocalizationsWidgetState extends State<LocalizationsWidget> {
 }
 ```
 + 最后，在相应MaterialApp中引入
-```
+```dart
 import 'package:flutter_redux/flutter_redux.dart';
 
 @override
@@ -112,11 +112,11 @@ import 'package:flutter_redux/flutter_redux.dart';
   }
 ```
 + 使用字段
-```
+```dart
 DemoLocalizations.of(context).currentLocalized.title
 ```
 + 切换语言
-```
+```dart
 static changeLocale(Store<HYXState> store, int index) {
     Locale locale = store.state.locale;
     switch (index) {

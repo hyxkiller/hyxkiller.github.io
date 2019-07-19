@@ -7,7 +7,7 @@ categories: 前端
 
 ## 方案1
 #### 文件代码
-```
+```js
 import React, { Component } from "react";
 
 export default function asyncComponent(importComponent) {
@@ -38,7 +38,7 @@ export default function asyncComponent(importComponent) {
 ```
 
 #### .babelrc
-```
+```js
 {
     "presets": [
         "react-app",
@@ -50,12 +50,12 @@ export default function asyncComponent(importComponent) {
 
 #### 装包
 + 都是处理babel的插件
-```
+```sh
 npm i babel-preset-env babel-preset-react-native-stage-0 -D
 ```
  
 #### 组件引入
-```
+```sh
 import asyncComponent from 'utils/asyncComponent'
 const Home = asyncComponent(() => import('./components/home'));
 ```

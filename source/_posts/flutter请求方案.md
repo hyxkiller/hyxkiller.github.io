@@ -7,7 +7,7 @@ categories: flutter
 
 #### 请求
 1. pubspec.yaml文件中dev_dependencies下加: http: ^0.11.3+17
-    ```
+    ```dart
     dev_dependencies:
         flutter_test:
             sdk: flutter
@@ -16,7 +16,7 @@ categories: flutter
 2. 引入     
     import 'package:http/http.dart' as http;
 3. 使用
-    ```
+    ```dart
     String url = 'http://localhost:9002/tabs';
     var res = await http.get(url);
     List list = json.decode(res.body);

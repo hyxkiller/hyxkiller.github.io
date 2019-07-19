@@ -21,7 +21,7 @@ categories: Nginx
 ### 配置步骤
 - 把build后的包放到nginx根目录下
 - 修改/usr/local/etc/nginx/nginx.conf文件配置
-- 
+    ```js
         location / {
             root   build;
             index  index.html index.htm;
