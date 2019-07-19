@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="写在前面自动部署githubio后，当然也得实现自动部署个人服务器。首先，我提前先在服务器写好了nginx配置文件，将根路由指向固定目录下的文件。 实现原理坑看了网上好多博客教程，大概意思是把本地的公钥放到服务器，然后会通过travis encrypt加密公钥文件，在.travis.yml里会自动生成一段openssl的代码，但我最终没有成功。我的想法是应该是travis部署服务和个人服务器公钥之">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:19.127Z">
+<meta property="og:updated_time" content="2019-07-19T10:14:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="travis自动部署个人服务器">
 <meta name="twitter:description" content="写在前面自动部署githubio后，当然也得实现自动部署个人服务器。首先，我提前先在服务器写好了nginx配置文件，将根路由指向固定目录下的文件。 实现原理坑看了网上好多博客教程，大概意思是把本地的公钥放到服务器，然后会通过travis encrypt加密公钥文件，在.travis.yml里会自动生成一段openssl的代码，但我最终没有成功。我的想法是应该是travis部署服务和个人服务器公钥之">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  315
+                  311
                 </span>
               
 
@@ -421,13 +421,13 @@
 <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><p>看了网上好多博客教程，大概意思是把本地的公钥放到服务器，然后会通过travis encrypt加密公钥文件，在<code>.travis.yml</code>里会自动生成一段openssl的代码，但我最终没有成功。我的想法是应该是travis部署服务和个人服务器公钥之间的关系，因为这样按那些做法做的话，如果换一台电脑还得再匹配出一份密钥。</p>
 <h4 id="最终通过sshpass解决问题"><a href="#最终通过sshpass解决问题" class="headerlink" title="最终通过sshpass解决问题"></a>最终通过sshpass解决问题</h4><ul>
 <li><p>首先通过travis给服务器的用户名和密码加密(因为直接暴露ssh的用户名密码不安全，而travis提供了加密变量的功能)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt DEPLOY_USER=yourusername</span><br><span class="line">travis encrypt DEPLOY_PASS=yourpassword</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">travis encrypt DEPLOY_USER=yourusername</span><br><span class="line">travis encrypt DEPLOY_PASS=yourpassword</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后把生成的哈希填到<code>.travis.yml</code>文件的env里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env:</span><br><span class="line">  global:</span><br><span class="line">  - secure: &quot;&quot;</span><br><span class="line">  - secure: &quot;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env:</span><br><span class="line">  global:</span><br><span class="line">  - secure: <span class="string">""</span></span><br><span class="line">  - secure: <span class="string">""</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>之后脚本就可以使用变量了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">after_success:</span><br><span class="line">    - export SSHPASS=$DEPLOY_PASS</span><br><span class="line">    - sshpass -e scp -o stricthostkeychecking=no -r public username:IP:/路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">after_success:</span><br><span class="line">    - <span class="built_in">export</span> SSHPASS=<span class="variable">$DEPLOY_PASS</span></span><br><span class="line">    - sshpass -e scp -o stricthostkeychecking=no -r public username:IP:/路径</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><code>stricthostkeychecking=no</code>是绕过ssh远程主机公钥检查， <code>-r</code>是上传文件夹的参数</p>
@@ -752,7 +752,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
 <div class="BbeiAn-info">

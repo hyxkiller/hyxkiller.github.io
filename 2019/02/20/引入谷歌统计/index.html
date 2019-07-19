@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="如何加入谷歌统计 创建或登录到您的 Google Analytics帐号( google.com/analytics) 在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。 如何设置媒体资源？ 登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。 在“媒体资源”列(第二列)中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:19.127Z">
+<meta property="og:updated_time" content="2019-07-19T10:14:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="引入谷歌统计">
 <meta name="twitter:description" content="如何加入谷歌统计 创建或登录到您的 Google Analytics帐号( google.com/analytics) 在 Google Analytics（分析）帐号中设置媒体资源。媒体资源代表您的网站或应用。 如何设置媒体资源？ 登录到谷歌分析后，点击左下角管理，在“帐号”列(第一列)中，来选择要向其添加媒体资源的帐号。如果有多个帐号，可使用搜索框找到所需的帐号。 在“媒体资源”列(第二列)中">
@@ -358,7 +358,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.2k
                 </span>
               
 
@@ -420,7 +420,7 @@
 </ol>
 <ul>
 <li><p>跟踪代码段 将以下代码段粘贴到网站的每个网页的 <head> 标记之后，并且紧挨着该标记放置。将 GA_TRACKING_ID 替换为您自己的 Google Analytics（分析）跟踪 ID：</head></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">   window.dataLayer = window.dataLayer || [];</span><br><span class="line">   function gtag()&#123;dataLayer.push(arguments);&#125;</span><br><span class="line">   gtag(&apos;js&apos;, new Date());</span><br><span class="line"> </span><br><span class="line">   gtag(&apos;config&apos;, &apos;GA_TRACKING_ID&apos;);</span><br><span class="line"> &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"</span>&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">   <span class="built_in">window</span>.dataLayer = <span class="built_in">window</span>.dataLayer || [];</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">gtag</span>(<span class="params"></span>)</span>&#123;dataLayer.push(<span class="built_in">arguments</span>);&#125;</span><br><span class="line">   gtag(<span class="string">'js'</span>, <span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line"> </span><br><span class="line">   gtag(<span class="string">'config'</span>, <span class="string">'GA_TRACKING_ID'</span>);</span><br><span class="line"> &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>验证跟踪代码是否正常工作 要验证跟踪代码是否正常工作，请访问您的网站，并检查您的这次访问是否已在实时报告(在左侧面板中，打开实时类别下的概览。)中记录。</p>
 </li>
@@ -434,24 +434,24 @@
 </ul>
 </li>
 <li><p>设置事件跟踪<br>在你的网页添加如下类似的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a onClick=&quot;ga(&apos;send&apos;, &apos;event&apos;, &apos;你填写的类别&apos;, &apos;你填写的操作&apos;, &apos;你填写的标签&apos;,&apos;你填写的价值&apos;);&quot; href=&quot;打赏链接&quot; target=&quot;_blank”&gt;打赏&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a onClick=<span class="string">"ga('send', 'event', '你填写的类别', '你填写的操作', '你填写的标签','你填写的价值');"</span> href=<span class="string">"打赏链接"</span> target=<span class="string">"_blank”&gt;打赏&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看事件追踪报告 左侧面板实时&gt;事件即可查看</p>
 </li>
 </ol>
-<h2 id="设置异常跟踪"><a href="#设置异常跟踪" class="headerlink" title="设置异常跟踪"></a>设置异常跟踪</h2><p>在您的网站添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;send&apos;, &apos;exception&apos;, [fieldsObject]);</span><br></pre></td></tr></table></figure></p>
-<p>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  // Runs code that may or may not work.</span><br><span class="line">  ....</span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">  ga(&apos;send&apos;, &apos;exception&apos;, &#123;</span><br><span class="line">    &apos;exDescription&apos;: err.message,//可选 标识对异常的说明。</span><br><span class="line">    &apos;exFatal&apos;: false,//可选 true 表示异常属于严重类型。</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="设置异常跟踪"><a href="#设置异常跟踪" class="headerlink" title="设置异常跟踪"></a>设置异常跟踪</h2><p>在您的网站添加如下代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(<span class="string">'send'</span>, <span class="string">'exception'</span>, [fieldsObject]);</span><br></pre></td></tr></table></figure></p>
+<p>例如:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// Runs code that may or may not work.</span></span><br><span class="line">  ....</span><br><span class="line">&#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">  ga(<span class="string">'send'</span>, <span class="string">'exception'</span>, &#123;</span><br><span class="line">    <span class="string">'exDescription'</span>: err.message,<span class="comment">//可选 标识对异常的说明。</span></span><br><span class="line">    <span class="string">'exFatal'</span>: <span class="literal">false</span>,<span class="comment">//可选 true 表示异常属于严重类型。</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="用户识别"><a href="#用户识别" class="headerlink" title="用户识别"></a>用户识别</h2><p>通过<strong>User ID</strong>进行用户身份识别<br><strong>注意</strong>:USER_ID 值应是一个独一无二的永久性非个人身份字符串，在所有设备上代表对应的用户或已登录帐户。</p>
 <ol>
 <li><p>如果userId是已知的，可以直接获取到，则只需添加如下代码即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;create&apos;, &apos;UA-XXXXX-Y&apos;, &apos;auto&apos;, &#123;</span><br><span class="line">    userId: USER_ID</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ga(<span class="string">'create'</span>, <span class="string">'UA-XXXXX-Y'</span>, <span class="string">'auto'</span>, &#123;</span><br><span class="line">    userId: USER_ID</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果userId是未知的，需要调用接口才能获取到，那么在获取到userId后执行如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;set&apos;, &apos;userId&apos;, USER_ID);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(<span class="string">'set'</span>, <span class="string">'userId'</span>, USER_ID);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>添加该段代码后必须再设置一个事件向谷歌统计发送数据（参考谷歌统计之设置事件跟踪文章），例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(&apos;send&apos;, &apos;event&apos;, &apos;authentication&apos;, &apos;user-id available&apos;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="停用谷歌统计"><a href="#停用谷歌统计" class="headerlink" title="停用谷歌统计"></a>停用谷歌统计</h2><p>在网站添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window[&apos;ga-disable-UA-XXXXX-Y&apos;] = true;</span><br></pre></td></tr></table></figure></p>
+<p>添加该段代码后必须再设置一个事件向谷歌统计发送数据（参考谷歌统计之设置事件跟踪文章），例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ga(<span class="string">'send'</span>, <span class="string">'event'</span>, <span class="string">'authentication'</span>, <span class="string">'user-id available'</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="停用谷歌统计"><a href="#停用谷歌统计" class="headerlink" title="停用谷歌统计"></a>停用谷歌统计</h2><p>在网站添加如下代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>[<span class="string">'ga-disable-UA-XXXXX-Y'</span>] = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
 <p>其中的值 UA-XXXXX-Y对应于您要停止跟踪的媒体资源 ID。</p>
 
       
@@ -772,7 +772,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
 <div class="BbeiAn-info">

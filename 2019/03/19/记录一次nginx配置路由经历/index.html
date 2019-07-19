@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="碰到的业务场景：因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:19.127Z">
+<meta property="og:updated_time" content="2019-07-19T10:14:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次Nginx配置路由经历">
 <meta name="twitter:description" content="碰到的业务场景：因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的">
@@ -417,7 +417,7 @@
       
 
       
-        <p>碰到的业务场景：<br>因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。<br>期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的重定向。<br>后来在调研后，发现还是得在location / 下做文章，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    root   /usr/share/nginx/html;</span><br><span class="line">    index  index.html;</span><br><span class="line">    if ($uri = /xxx) &#123;</span><br><span class="line">        rewrite ^(.*)$ /$1.html last;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    try_files $uri $uri/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>碰到的业务场景：<br>因为在React项目中根目录/，有做重定向，又因为路由采用BrowserRouter，在Nginx的配置中将location / 的目录全部指向index.html，而遇到一个业务场景是要在现有的项目中有需要由一个特定的路由指向一个现成的html页面。<br>期初想法是新建一个location /xxx, root指向对应html,结果发现不管怎样去设置/xxx 的优先级还是会走到项目里的重定向。<br>后来在调研后，发现还是得在location / 下做文章，<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">root</span>   /usr/share/nginx/html;</span><br><span class="line">    <span class="attribute">index</span>  index.html;</span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$uri</span> = /xxx) &#123;</span><br><span class="line">        <span class="attribute">rewrite</span><span class="regexp"> ^(.*)$</span> /<span class="variable">$1</span>.html <span class="literal">last</span>;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>当uri碰到需要设置的/xxx路由，做一次rewrite重新匹配，指向目录下的相应html文件，last表示<code>完成该rewrite规则的执行后，停止处理后续rewrite指令集；然后查找匹配改变后URI的新location</code>.</p>
 
       
@@ -713,7 +713,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
 <div class="BbeiAn-info">

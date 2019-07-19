@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="场景后台管理项目一般都需要很多数据处理，遇到一个场景：管理员可以上传0–+∞图片类型+图片的场景，将数据存起来后不知道会上传多少组数据，调多少次上传图片的接口(因为这个接口会返回各个文件的id，之后在组合id调上传信息的接口)，就想到将最后的数组循环调用然后等返回值，就设计到forEach不能和await共用的问题。 期初以为是async和await无法真正做到这种异步问题，就用Promise包了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:19.127Z">
+<meta property="og:updated_time" content="2019-07-19T10:14:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何处理循环异步问题">
 <meta name="twitter:description" content="场景后台管理项目一般都需要很多数据处理，遇到一个场景：管理员可以上传0–+∞图片类型+图片的场景，将数据存起来后不知道会上传多少组数据，调多少次上传图片的接口(因为这个接口会返回各个文件的id，之后在组合id调上传信息的接口)，就想到将最后的数组循环调用然后等返回值，就设计到forEach不能和await共用的问题。 期初以为是async和await无法真正做到这种异步问题，就用Promise包了">
@@ -421,7 +421,7 @@
 <p>期初以为是async和await无法真正做到这种异步问题，就用Promise包了一层又一层，结果还是有问题。</p>
 <h4 id="自己当时的解法"><a href="#自己当时的解法" class="headerlink" title="自己当时的解法"></a>自己当时的解法</h4><p>最后想了一个解法，在保存数据的数组外定义一个变量，每次循环变量+1，循环内判断当此变量等于数组的长度时，将所有数据组装调上传信息的接口。</p>
 <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>forEach只支持同步代码，只是简单的执行一下回调函数，不会处理异步代码。</p>
-<h4 id="其他解法"><a href="#其他解法" class="headerlink" title="其他解法"></a>其他解法</h4><p>for…of (迭代器的一种实现，通过迭代器的方式遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">async function test() &#123;</span><br><span class="line">    let arr = [1, 2, 3];</span><br><span class="line">    for(const val of arr)&#123;</span><br><span class="line">        const res = await 请求(val)</span><br><span class="line">        console.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="其他解法"><a href="#其他解法" class="headerlink" title="其他解法"></a>其他解法</h4><p>for…of (迭代器的一种实现，通过迭代器的方式遍历<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">const</span> val <span class="keyword">of</span> arr)&#123;</span><br><span class="line">        <span class="keyword">const</span> res = <span class="keyword">await</span> 请求(val)</span><br><span class="line">        <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -741,7 +741,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
 <div class="BbeiAn-info">

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="请求 pubspec.yaml文件中dev_dependencies下加: http: ^0.11.3+17  1234dev_dependencies:    flutter_test:        sdk: flutter    http: ^0.11.3+17  引入 import ‘package:http/http.dart’ as http;  使用 123456String url">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:19.127Z">
+<meta property="og:updated_time" content="2019-07-19T10:14:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flutter请求方案">
 <meta name="twitter:description" content="请求 pubspec.yaml文件中dev_dependencies下加: http: ^0.11.3+17  1234dev_dependencies:    flutter_test:        sdk: flutter    http: ^0.11.3+17  引入 import ‘package:http/http.dart’ as http;  使用 123456String url">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  59
+                  57
                 </span>
               
 
@@ -419,11 +419,11 @@
       
         <h4 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h4><ol>
 <li><p>pubspec.yaml文件中dev_dependencies下加: http: ^0.11.3+17</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dev_dependencies:</span><br><span class="line">    flutter_test:</span><br><span class="line">        sdk: flutter</span><br><span class="line">    http: ^0.11.3+17</span><br></pre></td></tr></table></figure>
+ <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dev_dependencies:</span><br><span class="line">    flutter_test:</span><br><span class="line">        sdk: flutter</span><br><span class="line">    http: ^<span class="number">0.11</span><span class="number">.3</span>+<span class="number">17</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>引入<br> import ‘package:http/http.dart’ as http;</p>
 </li>
-<li>使用 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String url = &apos;http://localhost:9002/tabs&apos;;</span><br><span class="line">var res = await http.get(url);</span><br><span class="line">List list = json.decode(res.body);</span><br><span class="line">setState(() &#123;</span><br><span class="line">  newTitle = list;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>使用 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> url = <span class="string">'http://localhost:9002/tabs'</span>;</span><br><span class="line"><span class="keyword">var</span> res = <span class="keyword">await</span> http.<span class="keyword">get</span>(url);</span><br><span class="line"><span class="built_in">List</span> list = json.decode(res.body);</span><br><span class="line">setState(() &#123;</span><br><span class="line">  newTitle = list;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -744,7 +744,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
 <div class="BbeiAn-info">

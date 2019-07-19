@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="江山如画">
 <meta property="og:description" content="nginx基础命令下载 brew install nginx启动 nginx重启 nginx -s reload关闭 查看主进程号  ps -ef | grep nginx 从容停止 kill -QUIT 主进程号 快速停止 kill -TERM 主进程号 强制停止 kill -9 nginx   配置步骤 把build后的包放到nginx根目录下 修改/usr/local/etc/nginx/n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T01:56:19.127Z">
+<meta property="og:updated_time" content="2019-07-19T10:14:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React项目部署Nginx配置">
 <meta name="twitter:description" content="nginx基础命令下载 brew install nginx启动 nginx重启 nginx -s reload关闭 查看主进程号  ps -ef | grep nginx 从容停止 kill -QUIT 主进程号 快速停止 kill -TERM 主进程号 强制停止 kill -9 nginx   配置步骤 把build后的包放到nginx根目录下 修改/usr/local/etc/nginx/n">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  286
+                  298
                 </span>
               
 
@@ -429,38 +429,15 @@
 <hr>
 <h3 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h3><ul>
 <li>把build后的包放到nginx根目录下</li>
-<li>修改/usr/local/etc/nginx/nginx.conf文件配置</li>
-<li><pre><code>location / {
-    root   build;
-    index  index.html index.htm;
-    try_files $uri $uri/ /index.html;
-}
-
-client_max_body_size 2m;
-
-location ^~ /api/ {
-    proxy_pass 后端部署地址;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection &quot;upgrade&quot;;
-    proxy_set_header   Host             $host;
-    proxy_set_header   X-Real-IP        $remote_addr;
-    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-}
-
-location ~* /.html$ { 
-    add_header Cache-Control &quot;no-store, no-cache&quot;;
-}
-location ~* /.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc|eot|ttf)$ { expires max;}
-location ~* /.(?:css|js|js/.map)$ { expires max;}
-
-error_page   500 502 503 504  /50x.html;
-location = /50x.html {
-    root   html;
-}
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.root 为根目录默认路径</span><br><span class="line">2.try_files $uri $uri/ /index.html;</span><br><span class="line">因为browserRouter的原因，需要将每个uri指向index.html</span><br><span class="line">3.location ~* /.html$ 为html设置不缓存</span><br><span class="line">4.client_max_body_size限制上传文件大小</span><br><span class="line">5.error_page可以自定义错误页和访问设置</span><br></pre></td></tr></table></figure>
+<li><p>修改/usr/local/etc/nginx/nginx.conf文件配置</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    root   build;</span><br><span class="line">    index  index.html index.htm;</span><br><span class="line">    try_files $uri $uri/ <span class="regexp">/index.html;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">client_max_body_size 2m;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">location ^~ /</span>api/ &#123;</span><br><span class="line">    proxy_pass 后端部署地址;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection <span class="string">"upgrade"</span>;</span><br><span class="line">    proxy_set_header   Host             $host;</span><br><span class="line">    proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* <span class="regexp">/.html$ &#123; </span></span><br><span class="line"><span class="regexp">    add_header Cache-Control "no-store, no-cache";</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">location ~* /</span>.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc|eot|ttf)$ &#123; expires max;&#125;</span><br><span class="line">location ~* <span class="regexp">/.(?:css|js|js/</span>.map)$ &#123; expires max;&#125;</span><br><span class="line"></span><br><span class="line">error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">location = <span class="regexp">/50x.html &#123;</span></span><br><span class="line"><span class="regexp">    root   html;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>  1.root 为根目录默认路径<br>  2.try_files $uri $uri/ /index.html;<br>  因为browserRouter的原因，需要将每个uri指向index.html<br>  3.location ~* /.html$ 为html设置不缓存<br>  4.client_max_body_size限制上传文件大小<br>  5.error_page可以自定义错误页和访问设置</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### location的四种类别</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="location的四种类别"><a href="#location的四种类别" class="headerlink" title="location的四种类别"></a>location的四种类别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=   location = path 优先级最高，但要全路径匹配  </span><br><span class="line">^~  location ^~ path 优先级第二</span><br><span class="line">~ or ~* location ~ path [~正则匹配区分大小写，~*不区分大小写]</span><br></pre></td></tr></table></figure>
+<p>=   location = path 优先级最高，但要全路径匹配<br>^~  location ^~ path 优先级第二<br>~ or ~<em> location ~ path [~正则匹配区分大小写，~</em>不区分大小写]</p>
+<p><code>`</code></p>
+
       
     </div>
     
@@ -734,7 +711,7 @@ location = /50x.html {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx基础命令"><span class="nav-number">1.</span> <span class="nav-text">nginx基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">1.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启"><span class="nav-number">1.3.</span> <span class="nav-text">重启</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭"><span class="nav-number">1.4.</span> <span class="nav-text">关闭</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置步骤"><span class="nav-number">2.</span> <span class="nav-text">配置步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location的四种类别"><span class="nav-number">3.</span> <span class="nav-text">location的四种类别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx基础命令"><span class="nav-number">1.</span> <span class="nav-text">nginx基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">1.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启"><span class="nav-number">1.3.</span> <span class="nav-text">重启</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭"><span class="nav-number">1.4.</span> <span class="nav-text">关闭</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置步骤"><span class="nav-number">2.</span> <span class="nav-text">配置步骤</span></a></li></ol></div>
             
 
           </div>
@@ -781,7 +758,7 @@ location = /50x.html {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
 <div class="BbeiAn-info">
