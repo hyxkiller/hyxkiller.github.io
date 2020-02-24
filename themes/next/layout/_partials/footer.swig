@@ -43,5 +43,5 @@
 </div>
 
 <div class="BbeiAn-info">
-  <span>京ICP备19017946号</span>
+  <span><a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备19017946号</a></span>
 </div>
