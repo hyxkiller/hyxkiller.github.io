@@ -398,7 +398,7 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC80NDI0OC8yMDc4MQ==
+# livere_uid: MTAyMC80NDI0OC8yMDc4MQ==
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -416,6 +416,15 @@ gitment:
   client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
+
+gitalk:
+  enable: true
+  githubID: hyxkiller
+  repo: blog-comment
+  ClientID: b824a1d403e773d4fb87
+  ClientSecret: e957fe052f25f0d215361d5999959ae37edbdaf0
+  adminUser: hyxkiller
+  distractionFreeMode: true
 
 # Baidu Share
 # Available value:
