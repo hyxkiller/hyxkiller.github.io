@@ -39,7 +39,7 @@ categories: hexo
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: '12.x'
 
       - name: Install dependencies & Generate static files
         run: |
