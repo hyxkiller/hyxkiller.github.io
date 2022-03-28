@@ -32,6 +32,10 @@ categories: hexo
         TZ: Asia/Shanghai
       
       steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
