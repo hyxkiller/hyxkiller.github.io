@@ -41,7 +41,3 @@
   <div class="powered-by"></div>
   <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
 </div>
-
-<div class="BbeiAn-info">
-  <span><a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备19017946号</a></span>
-</div>
